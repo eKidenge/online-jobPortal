@@ -1,0 +1,470 @@
+{% load static %}
+
+<!doctype html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    {% comment %}
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
+    {% endcomment %}
+
+    <link rel="stylesheet" href="{% static 'core/css/style/bootstrap.min.css' %}">
+    <link rel="stylesheet" href="{% static 'core/css/style/datepicker3.css' %}">
+    <link rel="stylesheet" href="{% static 'core/css/apppointments.css' %}">
+    <link rel="stylesheet" href="{% static 'core/css/bookapppointment.css' %}">
+
+    <link rel="stylesheet" href="{% static 'core/style.css' %}" />
+    <link rel="stylesheet" href="{% static 'core/style2.css' %}" />
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        /* Styles for the modal overlay */
+        .custom-modal {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5);
+            z-index: 999;
+            /* Ensure the modal is above other elements */
+        }
+
+        /* Styles for the modal content */
+        .custom-modal-content {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+
+            position: relative;
+            /* Relative positioning for child elements */
+            z-index: 1000;
+            /* Ensure the modal content is above the overlay */
+        }
+
+        .custom-modal-content p {
+            /* text-align: center; */
+        }
+
+        /* Styles for the title spans */
+        .modal-title {
+            font-weight: bold;
+            color: #893232;
+            margin-right: 5px;
+
+        }
+
+        /* Styles for the close icon */
+        .close {
+            position: absolute;
+            top: 8px;
+            right: 10px;
+            font-size: 30px;
+            cursor: pointer;
+            color: #fffdfd;
+            border-radius: 50%;
+            background-color: #000;
+            width: 30px;
+            height: 30px;
+            display: flex;
+
+            align-items: center;
+            justify-content: center;
+        }
+
+        .close:hover {
+            color: #487ceb;
+        }
+
+        /* Styles for the instructions */
+        .instructions {
+            margin-top: 20px;
+            font-size: 14px;
+            color: #555;
+        }
+
+        /* Styles for the action buttons */
+        .action-button {
+            display: inline-block;
+            padding: 10px 20px;
+            margin-top: 10px;
+            background-color: #007bff;
+            color: #0a0a0a;
+            text-decoration: none;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
+        }
+
+        .action-button:hover {
+            background-color: #0056b3;
+            color: white;
+        }
+
+        #header {
+            font-size: 24px;
+            letter-spacing: 0;
+            line-height: 32px;
+            margin: 0;
+            font-weight: 800;
+            margin-top: 8px;
+            text-align: center;
+        }
+
+        #successMessage {
+
+            font-size: 14px;
+            font-style: oblique;
+        }
+    </style>
+    <style>
+        .text_inner h2 {
+            font-family: 'Prata', Georgia, "Times New Roman", serif;
+            font-size: 32px;
+            line-height: 1.4em;
+            color: #333;
+            padding-bottom: 10px;
+            font-weight: 500;
+        }
+
+        .text-inner {
+            font-family: 'Open Sans', Helvetica, Arial, Lucida, sans-serif;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            line-height: 1.8em;
+            font-size: 14px;
+        }
+
+        .text-inner p {
+            padding-bottom: 1em;
+        }
+
+        /* Style the form container */
+        .form-container {
+            background-color: #f4f4f4;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Style the form head */
+        .form-head {
+            background-color: #c0b293;
+            text-align: center;
+            border-radius: 5px;
+            padding: 10px;
+        }
+
+        /* Style form rows */
+        .form-row {
+            margin-bottom: 10px;
+        }
+
+        /* Style input fields */
+        .form-control {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        /* Style the "Book Appointment" button */
+        .btn-appointment {
+            background-color: #9b8d60;
+            color: white;
+            padding: 10px 20px !important;
+            border: none;
+            border-radius: 5px !important;
+            cursor: pointer;
+
+        }
+
+        /* Style select elements */
+        .form-select {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+
+
+
+<body>
+
+    <!-- Your navbar content goes here -->
+
+    {% include 'core/navbar.html' %}
+
+
+
+
+    {% block content %}
+    {% if messages %}
+    <ul class="messages">
+        {% for message in messages %}
+        <li{% if message.tags %} class="{{ message.tags }}" {% endif %}>{{ message }}</li>
+            {% endfor %}
+    </ul>
+    {% endif %}
+
+
+    <section>
+        <div class="inner-layer" style="margin-top: 20% !important;">
+            <div class="container">
+                <div class="row no-margin">
+                    <div class="col-sm-7">
+                        <div class="content" style="margin-right: 12%;">
+                            <h1 class="text-uppercase">SERENITY HAVEN</h1>
+                            <style>
+                                .text-uppercase {
+                                    font-family: 'Prata', Georgia, "Times New Roman", serif;
+                                    font-size: 50px;
+                                    line-height: 1.2em;
+
+                                    text-shadow: 0em 0.1em 0.1em #000000;
+                                    color: #a3885e !important;
+                                }
+                            </style>
+                            <p></p>
+                            <p style="font-style: italic; font-size: 14px;">Welcome to Serenity Haven Spa! We're
+                                thrilled to have you
+                                here. Book a
+                                Session and Get to Enjoy Our
+                                5-Star Services & Treatments. BOOK NOW !!</p><br>
+
+
+                            <div class="spa-hours">
+                                <div class="spa-sessions">
+                                    <div class="text_inner">
+                                        <h2>Open Hours</h2>
+                                    </div>
+                                    <div class="text-inner">Monday:&nbsp;<strong>9am – 9pm</strong>
+                                        <p></p>
+                                        <p>Tuesday:&nbsp;<strong>9am – 9pm</strong></p>
+                                        <p>Wednesday:&nbsp;<strong>9am – 9pm</strong></p>
+                                        <p>Thursday:&nbsp;<strong>9am – 9:00pm</strong></p>
+                                        <p>Friday:&nbsp;<strong>9am – 9:00pm</strong></p>
+                                        <p>Saturday: <strong>9am – 9:00pm</strong></p>
+                                        <p>Sunday: <strong>10am – 8:00pm</strong></p>
+                                    </div>
+                                </div>
+                            </div><br>
+                            <h5>
+
+                                <div class="social-link" style=""></div>
+                                <a href="https://api.whatsapp.com/send?phone=+254743299966"><i
+                                        class="fab fa-whatsapp"></i></a>
+                                <a href="https://www.facebook.com/jeptepkenym/"><i class="fab fa-facebook-f"></i></a>
+                                <a href="https://www.instagram.com/jeptepkeny.mogotio/"><i
+                                        class="fab fa-instagram"></i></a>
+
+
+                            </h5> <br>
+
+
+                        </div>
+                    </div>
+                    <div class="col-sm-5">
+                        <div class="text_inner">
+                            <h2>Policies and Conventions </h2>
+                        </div>
+                        <p></p>
+                        <p><span class="bold-text">Arrival Instructions:</span> Upon arrival, check in at our front
+                            desk, and our
+                            friendly staff will guide you to your appointment.</p><br>
+
+                        <p><span class="bold-text">Parking Information:</span> Complimentary valet parking is available
+                            for all
+                            spa guests.</p><br>
+
+                        <p><span class="bold-text">Cancellation Policy:</span> We understand that plans can change.
+                            Please notify
+                            us at least 24 hours in advance if you need to cancel or reschedule your appointment.</p>
+                        <br>
+
+                        <p><span class="bold-text">Special Requests:</span> Your comfort and satisfaction are important
+                            to us, so
+                            please inform us of any preferences, allergies, or sensitivities.</p><br>
+
+                        <p><span class="bold-text">Payment:</span> Payment for your spa session can be made using M-Pesa
+                            at the
+                            end of your appointment.</p><br>
+
+                        <p><span class="bold-text">RSVP:</span> To confirm your attendance or reschedule your
+                            appointment, please
+                            reply to this invitation or contact us as soon as possible.</p><br>
+
+
+                        <style>
+                            .bold-text {
+                                font-weight: bold;
+                            }
+                        </style>
+                    </div>
+
+                    <!-- Your updated modal HTML with styles and instructions -->
+                    <div id="customSuccessModal" class="custom-modal">
+                        <div class="custom-modal-content" style="width: max-content;">
+                            <span class="close" onclick="closeModal()">&times;</span>
+                            <p id="header">Serenity Beauty & Wellness Spa</p>
+                            <p id="successMessage" style="text-align: center;">
+                                <span class="modal-title"></span>
+                                {{ success_message }}
+                            </p><br>
+                            <p id="yourNameInModal" style="margin-left: 30%;">
+                                <span class="modal-title">Name:</span>
+                                {{ appointment_details.your_name }}
+                            </p>
+                            <p id="yourEmailInModal" style="margin-left: 30%;">
+                                <span class="modal-title">Email:</span>
+                                {{ appointment_details.your_email }}
+                            </p>
+
+                            <p id="yourServiceInModal" style="margin-left: 30%;">
+                                <span class="modal-title">Booked Service:</span>
+                                {{ appointment_details.your_service }}
+                            </p>
+
+                            <p id="yourSlotsInModal" style="margin-left: 30%;">
+                                <span class="modal-title">Reserved Slots:</span>
+                                {{ appointment_details.number_of_people }}
+                            </p>
+                            <p id="yourPriceInModal">
+                                <span class="modal-title" style="margin-left: 30%;">Total Price: </span>Ksh.
+                                {{ appointment_details.total_price }}
+                            </p>
+                            <p id="yourDateInModal">
+                                <span class="modal-title" style="margin-left: 30%;">Date:</span>
+                                {{ appointment_details.your_date }}
+                            </p>
+                            <p id="yourTimeInModal">
+                                <span class="modal-title" style="margin-left: 30%;">Time:</span>
+                                {{ appointment_details.your_time }} PM
+                            </p><br>
+
+
+                            <!-- Instructions -->
+                            <div class="instructions">
+                                <!-- Updated location paragraph with an icon -->
+                                <p style="margin-left: 30%;">
+                                    <span class="modal-title">
+                                        <i class="fas fa-map-marker-alt"></i> Location:
+                                    </span>
+                                    Nyali Center, First Floor.
+                                </p><br>
+
+                                <p>
+                                    <span class="modal-title">After Arrival:</span>
+                                    Please check in at the front desk upon arrival. Our staff will guide you to your
+                                    appointment.
+                                </p>
+                                <p>
+                                    <span class="modal-title">Next Steps:</span>
+                                    To view your appointment details or reserve another slot, you can:
+                                </p><br>
+                                <div class="links" style="text-align: center;">
+                                    <a href="{% url 'appointments' %}" class="action-button">View Appointment</a>
+                                    <a href="{% url 'bookappointment' %}" class="action-button">Reserve Another Slot</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <script>
+                        function closeModal() {
+                            document.getElementById("customSuccessModal").style.display = "none";
+                        }
+                    </script>
+
+
+
+                    <!-- Add JavaScript to capture form data and open the modal -->
+
+                    {% endblock content %}
+                    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+                    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+
+
+                    {% include 'core/blog.html' %}
+
+
+
+                    <!-- Add jQuery library if you don't already have it -->
+
+
+                    <script src="{% static 'core/js/jquery.js' %}"></script>
+                    <script src="{% static 'core/js/popper.js' %}"></script>
+                    <script src="{% static 'core/js/all.min.js' %}"></script>
+                    <script src="{% static 'core/js/bootstrap.js' %}"></script>
+
+                    <script src="{% static 'core/js/main.js' %}"></script>
+
+                    <script src="{% static 'js/jquery.min.js' %}"></script>
+
+                    <script>
+                        $(function () {
+                            $(window).scroll(function () {
+                                if ($(document).scrollTop() > 60) {
+                                    $(".main-nav").addClass("sticky")
+                                } else {
+                                    $(".main-nav").removeClass("sticky")
+                                }
+                            });
+                            $("#goTop").click(function () {
+                                $("html,body").animate({
+                                    scrollTop: 0
+                                }, "slow");
+                                return false
+                            });
+                            $(window).scroll(function () {
+                                if ($(this).scrollTop() > 300) {
+                                    $("#goTop").addClass("active")
+                                } else {
+                                    $("#goTop").removeClass("active");
+                                    return false
+                                }
+                            }).scroll()
+                        });
+                    </script>
+
+                    <script src="{% static 'core/js/jquery.js' %}"></script>
+                    <script src="{% static 'core/js/popper.js' %}"></script>
+                    <script src="{% static 'core/js/bootstrap.js' %}"></script>
+                    <script src="{% static 'core/js/bootstrap-datepicker.js' %}"></script>
+
+                    {% comment %}
+                    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.bundle.min.js"
+                        integrity="sha384-b5kHyXgcpbZJO/tY9Ul7kGkf1S0CWuKcCD38l8YkeH8z8QjE0GmW1gYU5S9FOnJ0"
+                        crossorigin="anonymous"></script>
+                    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.6.0/dist/umd/popper.min.js"
+                        integrity="sha384-KsvD1yqQ1/1+IA7gi3P0tyJcT3vR+NdBTt13hSJ2lnve8agRGXTTyNaBYmCR/Nwi"
+                        crossorigin="anonymous"></script>
+                    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.min.js"
+                        integrity="sha384-nsg8ua9HAw1y0W1btsyWgBklPnCUAFLuTMS2G72MMONqmOymq585AcH49TLBQObG"
+                        crossorigin="anonymous"></script>
+                    Mercy Jeptepkeny
+                    +2547045533519
+                    jeptepkenymercy@gmail.com
+                    {% endcomment %}
+
+                    <script>
+                        $(document).ready(function () {
+                            $("#showdate").datepicker({ format: 'yyyy-mm-dd' });
+                        });
+                    </script>
+
+</body>
+
+</html>

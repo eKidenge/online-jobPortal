@@ -1,0 +1,200 @@
+{% load static %}
+
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> Serenity | Contact </title>
+
+    <link rel="stylesheet" href="{% static 'core/css/style/bootstrap.min.css' %}">
+    <link rel="stylesheet" href="{% static 'core/css/about.css' %}">
+
+    <link rel="stylesheet" href="{% static 'core/style.css' %}" />
+    <link rel="stylesheet" href="{% static 'core/style2.css' %}" />
+
+    <style>
+        .mb-4 {
+            margin-bottom: 1.5rem !important;
+            font-family: 'Open Sans', Helvetica, Arial, Lucida, sans-serif;
+            font-weight: 700;
+            text-transform: uppercase;
+            font-size: 25px;
+            letter-spacing: 5px;
+            line-height: 1.8em;
+
+        }
+
+        .input-field {
+            background-color: #f5f5f5;
+            border: none;
+            border-bottom: 2px solid #007bff;
+            margin-bottom: 20px;
+            border-radius: 0;
+        }
+
+        .input-field::placeholder {
+            color: #aaa;
+        }
+
+        .btn-primary {
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            border-radius: 0;
+            transition: background-color 0.3s;
+        }
+
+        .btn-primary:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+
+
+<body>
+
+    <!-- Your navbar content goes here -->
+
+    {% include 'core/navbar.html' %}
+
+
+
+
+    {% block content %}
+
+    <!-- Contact Start -->
+    <div class="container-fluid py-5">
+        <div class="container py-5">
+            <div class="row">
+                <div class="contact-box"
+                    style="display: flex; flex-direction: row-reverse; justify-content: space-between; margin-top: 7%;">
+
+                    <div class="spa-hours">
+                        <div class="spa-sessions" style="margin-top: 45%;">
+                            <div class="text_inner">
+                                <h2>Spa Hours</h2>
+                            </div>
+                            <div class="text-inner">Monday:&nbsp;<strong>9am – 9pm</strong>
+                                <p></p>
+                                <p>Tuesday:&nbsp;<strong>9am – 9pm</strong></p>
+                                <p>Wednesday:&nbsp;<strong>9am – 9pm</strong></p>
+                                <p>Thursday:&nbsp;<strong>9am – 9:00pm</strong></p>
+                                <p>Friday:&nbsp;<strong>9am – 9:00pm</strong></p>
+                                <p>Saturday: <strong>9am – 9:00pm</strong></p>
+                                <p>Sunday: <strong>10am – 8:00pm</strong></p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-6 pt-5 pb-lg-5">
+
+
+                        <div class="contact-form bg-light p-4 p-lg-5 my-lg-5"
+                            style="background-color: #c3c3c399 !important; border-radius: 3%;">
+                            <!-- <h6 class="d-inline-block text-white text-uppercase bg-primary py-1 px-2">Contact</h6> -->
+                            <h1 class="mb-4"> Get in Touch</h1> <br><br>
+                            <div id="success"></div>
+
+                            <form name="sentMessage" id="contactForm" novalidate="novalidate">
+                                <div class="form-row">
+                                    <div class="control-group">
+                                        <input type="text" class="form-control border-0 p-4 input-field" id="name"
+                                            placeholder="Your Name" required="required"
+                                            data-validation-required-message="Please enter your name" />
+                                        <p class="help-block text-danger"></p>
+                                    </div>
+                                    <div class=" control-group">
+                                        <input type="email" class="form-control border-0 p-4 input-field" id="email"
+                                            placeholder="Your Email" required="required"
+                                            data-validation-required-message="Please enter your email" />
+                                        <p class="help-block text-danger"></p>
+                                    </div>
+                                    <div class="control-group">
+                                        <select class="form-control " id="subject" required="required"
+                                            data-validation-required-message="Please select a subject">
+                                            <option value="" disabled selected> ---select an inquiry--- </option>
+                                            <option value="Appointment and Availability">Appointment and Availability
+                                            </option>
+                                            <option value="Services and Pricing">Services and Pricing</option>
+                                            <option value="Staff and Expertise">Staff and Expertise</option>
+                                            <option value="Products and Ingredients">Products and Ingredients</option>
+                                            <option value="Health and Safety">Health and Safety</option>
+                                            <option value="Special Requests">Special Requests</option>
+                                            <option value="Cancellation and Rescheduling">Cancellation and Rescheduling
+                                            </option>
+                                            <option value="Location and Directions">Location and Directions</option>
+                                            <option value="Feedback and Reviews">Feedback and Reviews</option>
+                                            <option value="Gifts and Gift Cards">Gifts and Gift Cards</option>
+                                        </select>
+                                        <p class="help-block text-danger"></p>
+                                    </div>
+
+                                    <div class="control-group">
+                                        <textarea class="form-control border-0 py-3 px-4 input-field" rows="3"
+                                            id="message" placeholder="Message" required="required"
+                                            data-validation-required-message="Please enter your message"></textarea>
+                                        <p class="help-block text-danger"></p>
+                                    </div>
+                                    <div>
+                                        <button class="btn btn-primary py-3 px-4" type="submit"
+                                            id="sendMessageButton">Send
+                                            Message</button>
+                                    </div>
+
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Contact End -->
+
+
+    {% endblock content %}
+
+    {% include 'core/blog.html' %}
+
+    {% include 'core/footer.html' %}
+
+    <script src="{% static 'core/js/jquery.js' %}"></script>
+    <script src="{% static 'core/js/popper.js' %}"></script>
+    <script src="{% static 'core/js/all.min.js' %}"></script>
+    <script src="{% static 'core/js/bootstrap.js' %}"></script>
+
+    <script src="{% static 'core/js/main.js' %}"></script>
+
+    <script src="{% static 'js/jquery.min.js' %}"></script>
+
+    <script>
+        $(function () {
+            $(window).scroll(function () {
+                if ($(document).scrollTop() > 60) {
+                    $(".main-nav").addClass("sticky")
+                } else {
+                    $(".main-nav").removeClass("sticky")
+                }
+            });
+            $("#goTop").click(function () {
+                $("html,body").animate({
+                    scrollTop: 0
+                }, "slow");
+                return false
+            });
+            $(window).scroll(function () {
+                if ($(this).scrollTop() > 300) {
+                    $("#goTop").addClass("active")
+                } else {
+                    $("#goTop").removeClass("active");
+                    return false
+                }
+            }).scroll()
+        });
+    </script>
+
+</body>
+
+</html>

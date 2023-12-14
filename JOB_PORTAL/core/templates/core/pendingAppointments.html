@@ -1,0 +1,175 @@
+{% load static %}
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Appointments | Pending</title>
+
+    <link rel="stylesheet" href="{% static 'core/css/style/bootstrap.min.css' %}">
+    <link rel="stylesheet" href="{% static 'core/css/appointments.css' %}">
+
+
+    <link rel="stylesheet" href="{% static 'core/style.css' %}" />
+    <link rel="stylesheet" href="{% static 'core/style2.css' %}" />
+    <style>
+        label {
+            /* display: block; */
+            margin-bottom: 8px;
+            color: #333;
+            font-weight: bold;
+        }
+
+        input[type="text"] {
+            width: 30%;
+            padding: 10px;
+            margin-bottom: 16px;
+            box-sizing: border-box;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            font-size: 14px;
+        }
+
+        input[type="text"]:focus {
+            outline: none;
+            border-color: #4caf50;
+        }
+
+        button {
+            background-color: #4caf50;
+            color: #fff;
+            padding: 12px 20px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: background-color 0.3s ease;
+        }
+
+        button:hover {
+            background-color: #45a049;
+        }
+
+        p {
+            color: #888;
+            margin-top: 8px;
+        }
+    </style>
+</head>
+{% include 'core/navbar.html' %}
+
+
+<body>
+    {% block content %}
+    <div class="container">
+        <div class="appointments" style="margin-top: 22% !important;">
+            <form action="{% url 'pendingAppointments' %}" method="GET">
+                <label for="searchNameInput">Search by Name:</label>
+                <input type="text" id="searchNameInput" name="search_name" value="{{ search_name_query }}">
+
+                <label for="searchDateInput">Search by Date:</label>
+                <input type="date" id="searchDateInput" name="search_date" value="{{ search_date_query }}">
+
+                <button type="submit">Search</button>
+
+                {% if no_results %}
+                <p style="color: #333;">No results found.</p>
+                {% endif %}
+
+                {% if search_name_query or search_date_query %}
+                <a href="{% url 'pendingAppointments' %}"><button type="button">Clear</button></a>
+                {% endif %}
+            </form>
+
+
+            <h1 class="my-5" style="background-color: #af3535; color: aliceblue; padding: 5px; text-align: center;">
+                Clients Appointments</h1>
+
+            <table class="table mb-5">
+                <thead class="thead-dark">
+                    <tr>
+                        <th scope="col">ID</th>
+                        <th scope="col">Full Name</th>
+                        <th scope="col">Phone Number</th>
+                        <th scope="col">Service</th>
+                        <th scope="col">No. of People</th>
+                        <th scope="col">Date</th>
+                        <th scope="col">Status</th>
+                        <th scope="col">Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for appointment in appointments %}
+                    <tr>
+                        <th scope="row">{{ forloop.counter }}</th>
+                        <td>{{ appointment.your_name }}</td>
+                        <td>{{ appointment.your_phone }}</td>
+
+                        <td>{{ appointment.your_service.name }}</td>
+                        <td>{{ appointment.number_of_people }}</td>
+
+                        <td>{{ appointment.your_date }}</td>
+                        <td>{{ appointment.status }}</td>
+
+                        <form action="{% url 'mark_as_delivered' appointment.id %}" method="post">
+                            {% csrf_token %}
+                            <td>
+                                <button type="submit" class="btn btn-success">Mark as Delivered</button>
+                            </td>
+                        </form>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+
+    {% include 'core/blog.html' %}
+
+    {% include 'core/footer.html' %}
+
+    <script src="{% static 'core/js/jquery.js' %}"></script>
+    <script src="{% static 'core/js/popper.js' %}"></script>
+    <script src="{% static 'core/js/all.min.js' %}"></script>
+    <script src="{% static 'core/js/bootstrap.js' %}"></script>
+
+    <script src="{% static 'core/js/main.js' %}"></script>
+
+    <script src="{% static 'js/jquery.min.js' %}"></script>
+
+    <script>
+        $(function () {
+            $(window).scroll(function () {
+                if ($(document).scrollTop() > 60) {
+                    $(".main-nav").addClass("sticky")
+                } else {
+                    $(".main-nav").removeClass("sticky")
+                }
+            });
+            $("#goTop").click(function () {
+                $("html,body").animate({
+                    scrollTop: 0
+                }, "slow");
+                return false
+            });
+            $(window).scroll(function () {
+                if ($(this).scrollTop() > 300) {
+                    $("#goTop").addClass("active")
+                } else {
+                    $("#goTop").removeClass("active");
+                    return false
+                }
+            }).scroll()
+        });
+    </script>
+
+</body>
+
+</html>
+
+{% endblock content %}

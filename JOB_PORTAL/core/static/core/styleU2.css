@@ -1,0 +1,349 @@
+.services-container {
+    background-size: cover;
+    padding: 60px 0;
+}
+
+.inner-container {
+    width: 100%;
+    max-width: 1200px;
+    margin: auto;
+    padding: 0 20px;
+    overflow: hidden;
+}
+
+.section-title {
+    text-align: center;
+    color: #000;
+    text-transform: uppercase;
+    font-size: 30px;
+}
+
+.border {
+    width: 160px;
+    height: 2px;
+    background: #cb2d3e;
+    margin: 40px auto;
+}
+
+.service-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.service-box {
+    max-width: 33.33%;
+    padding: 10px;
+    text-align: center;
+    color: #161616;
+    cursor: pointer;
+}
+
+.service-icon {
+    display: inline-block;
+    width: 70px;
+    height: 70px;
+    border: 3px solid #333;
+    margin-bottom: 30px;
+    margin-top: 16px;
+    border-radius: 50%;
+}
+
+.service-icon i {
+    line-height: 70px;
+    transform: rotate(-45deg);
+    font-size: 26px;
+}
+
+.service-box:hover .service-icon {
+    background: #a1a1a1c5;
+    color: #242424;
+}
+
+.service-title {
+    font-size: 18px;
+    text-transform: uppercase;
+    margin-bottom: 10px;
+    .descriptionfont-size: 14px;
+}
+
+@media screen and (max-width: 960px) {
+    .service-box {
+        max-width: 45%;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .service-box {
+        max-width: 50%;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .service-box {
+        max-width: 100%;
+    }
+}
+
+.list-members {
+    background: #95aa5c;
+    width: 80%;
+    margin: 4% auto;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.member {
+    flex-basis: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.member-image {
+    width: 50%;
+    height: 100%;
+    cursor: pointer;
+    overflow: hidden;
+    position: relative;
+}
+
+.member-image img {
+    width: 100%;
+    height: 100%;
+    transition: 1s;
+}
+
+.member-image:hover img {
+    transform: scale(1.1);
+}
+
+.member-info {
+    width: 50%;
+    text-align: center;
+}
+
+.member-info p {
+    margin: 20px 0;
+}
+
+.social-link .fab {
+    width: 35px;
+    height: 35px;
+    line-height: 35px;
+    margin: 0 7px;
+    cursor: pointer;
+    transition: transform 0.5s;
+    color: #ff8dc7;
+}
+
+.social-link .fab:hover {
+    background: #ffddd2;
+    color: #ff5da2;
+    transform: translateY(-7px);
+    border-radius: 50%;
+}
+
+@media screen and (min-width: 771px) {
+
+    .member:nth-child(4n + 3) .member-info,
+    .member:nth-child(4n + 4) .member-info {
+        order: 1;
+    }
+
+    .member:nth-child(4n + 3) .member-image,
+    .member:nth-child(4n + 4) .member-image {
+        order: 2;
+    }
+
+    .member:nth-child(4n + 3) .member-image::after,
+    .member:nth-child(4n + 4) .member-image::after {
+        left: 0;
+        right: auto;
+        transform: translateY(-50%) rotateZ(180deg);
+    }
+}
+
+@media screen and (max-width: 770px) {
+    .list-members {
+        width: 95%;
+    }
+
+    .member {
+        flex-basis: 100%;
+        font-size: 14px;
+    }
+
+    .social-link .fab {
+        width: 30px;
+        height: 30px;
+        line-height: 30px;
+    }
+
+    .member:nth-child(even) .member-info {
+        order: 1;
+    }
+
+    .member:nth-child(even) .member-image {
+        order: 2;
+    }
+
+    .member:nth-child(even) .member-image::after {
+        left: 0;
+        right: auto;
+        transform: translateY(-50%) rotateZ(180deg);
+    }
+}
+
+/* Style the container div */
+.dropdown {
+    position: relative;
+    display: inline-block;
+    width: auto;
+}
+
+/* Style the "Login" link */
+.dropdown a.active {
+    display: block !important;
+    padding: 1.5rem 1rem !important;
+    color: #fff !important;
+    font-size: 0.95rem !important;
+    font-weight: 600 !important;
+    letter-spacing: 1px !important;
+}
+
+
+/* Style the dropdown content (hidden by default) */
+.dropdown .dropdown-content {
+    display: none;
+    position: relative;
+    background-color: rgba(37, 35, 35, 0.9) !important;
+    /* Slightly transparent background color */
+    min-width: 100px;
+    box-shadow: 0px 8px 16px 0px rgba(187, 184, 184, 0.2);
+    z-index: 1;
+    /* margin-top: 1%; */
+    margin-right: 30%;
+    text-align: center !important;
+    transform: translateY(1px) rotateX(-180deg) !important;
+    /* Initial position and tilt */
+    transition: opacity 0.3s, transform 0.3s !important;
+}
+
+
+/* Style the dropdown options */
+.dropdown .dropdown-content a {
+    display: block;
+    padding: 10px;
+    text-decoration: none;
+    color: #aa9104 !important;
+}
+
+/* Highlight the options on hover */
+.dropdown .dropdown-content a:hover {
+    color: #131212 !important;
+}
+
+/* Show the dropdown content when hovering over the container */
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+/* Style the container div */
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+/* Style the "Login" link */
+.dropdown a.active {
+    display: block;
+    padding: 10px;
+    text-decoration: none;
+    color: #333;
+}
+
+/* Style the dropdown content (hidden by default) */
+.dropdown .dropdown-content {
+    display: none;
+    /* Hide by default */
+    position: absolute;
+    background-color: #f9f9f9;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+    z-index: 1;
+}
+
+/* Style the dropdown options */
+.dropdown .dropdown-content a {
+    display: block;
+    padding: 10px;
+    text-decoration: none;
+    color: #333;
+}
+
+/* Highlight the options on hover */
+.dropdown .dropdown-content a:hover {
+    background-color: #ddd;
+}
+
+/* Show the dropdown content when hovering over the container */
+.dropdown:hover .dropdown-content {
+    display: block;
+    /* Show on hover */
+}
+
+/* Style the container div */
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+/* Style the "Login" link */
+.dropdown a.active {
+    display: block;
+    padding: 10px;
+    text-decoration: none;
+    color: #333;
+}
+
+/* Style the dropdown content (initially hidden) */
+.dropdown .dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f9f9f9;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+    z-index: 1;
+}
+
+/* Style the dropdown options */
+.dropdown .dropdown-content a {
+    display: block;
+    padding: 10px;
+    text-decoration: none;
+    color: #333;
+}
+
+/* Highlight the options on hover */
+.dropdown .dropdown-content a:hover {
+    background-color: #ddd;
+}
+
+/* Show the dropdown content when hovering over the container */
+.dropdown:hover .dropdown-content {
+    display: block;
+    transform: translateY(0) rotateX(0) !important;
+}
+
+.table {
+    background-color: #f9f9f9;
+    border-radius: 2%;
+}
+
+#mybtn button {
+    position: relative;
+    border-radius: 3%;
+
+
+}

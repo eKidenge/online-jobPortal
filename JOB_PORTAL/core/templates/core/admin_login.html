@@ -1,0 +1,62 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> Admin Login </title>
+
+    <!-- Bootstrap Files -->
+    <link rel="stylesheet" href="{% static 'core/css/style/bootstrap.min.css' %}">
+</head>
+
+<body>
+
+    <div class="container">
+        <div class="p-4 m-4 mt-3">
+            <div class="col-lg-5 mx-auto border rounded pt-4 p-2">
+                <h3 class="alert alert-info border rounded text-center"> Admin Login </h3>
+
+
+                <form action="{% url 'home' %}" method="POST">
+                    {% csrf_token %}
+
+                    <!-- Email -->
+                    <div class="form-group">
+                        <label for="">Username</label>
+                        <input type="text" name="username" id="" value="" class="form-control form-control-sm"
+                            placeholder="">
+                    </div>
+
+                    <!-- Password -->
+                    <div class="form-group">
+                        <label for=""> Password </label>
+                        <input type="password" name="password" id="" class="form-control form-control-sm"
+                            placeholder="">
+                    </div>
+
+                    <!-- Button -->
+                    <div class="form-group text-center mt-3">
+                        <input type="submit" value="Login" class="btn btn-info">
+                        <a class="btn btn-info" href="{% url 'index' %}" role="button">Back to Home Page </a>
+                    </div>
+
+                </form>
+
+            </div>
+        </div>
+    </div>
+
+
+
+    <!-- All JavaScript Link -->
+    <script src="{% static 'core/js/jquery.js' %}"></script>
+    <script src="{% static 'core/js/popper.js' %}"></script>
+    <script src="{% static 'core/js/all.min.js' %}"></script>
+    <script src="{% static 'core/js/bootstrap.js' %}"></script>
+
+</body>
+
+</html>

@@ -1,0 +1,158 @@
+{% load static %}
+
+{% block custom_css %}
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+  integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
+  crossorigin="anonymous" referrerpolicy="no-referrer" />
+<link rel="stylesheet" href="{% static 'core/style.css' %}" />
+<link rel="stylesheet" href="{% static 'core/style2.css' %}" />
+{% endblock custom_css %}
+
+{% block content %}
+
+<ul class="list-members">
+  <li class="member">
+    <div class="member-image">
+      <img src="{% static 'core/images/image5.jpg' %}" />
+    </div>
+    <div class="member-info">
+      <h3>Mercy Mogotio</h3>
+      <p>Chief Executive</p>
+      <div class="social-link">
+        <a href="https://www.facebook.com/jeptepkenym/">
+          <i class="fab fa-facebook-f"></i>
+        </a>
+        <a href="https://www.instagram.com/jeptepkeny.mogotio/">
+          <i class="fab fa-instagram"></i>
+        </a>
+        <a href="https://www.pinterest.com/jeptepkenymercy/">
+          <i class="fab fa-pinterest"></i>
+        </a>
+      </div>
+    </div>
+  </li>
+  <li class="member">
+    <div class="member-image">
+      <img src="{% static 'core/images/image2.jpg' %}" />
+    </div>
+    <div class="member-info">
+      <h3>Wairimu Jenny</h3>
+      <p>Product Manager</p>
+      <div class="social-link">
+        <i class="fab fa-facebook-f"></i>
+        <i class="fab fa-instagram"></i>
+        <i class="fab fa-pinterest"></i>
+      </div>
+    </div>
+  </li>
+  <li class="member">
+    <div class="member-image">
+      <img src="{% static 'core/images/image3.jpg' %}" />
+    </div>
+    <div class="member-info">
+      <h3>Agnes Awiti</h3>
+      <p>CTO</p>
+      <div class="social-link">
+        <i class="fab fa-facebook-f"></i>
+        <i class="fab fa-instagram"></i>
+        <i class="fab fa-pinterest"></i>
+      </div>
+    </div>
+  </li>
+  <li class="member">
+    <div class="member-image">
+      <img src="{% static 'core/images/image6.jpg' %}" />
+    </div>
+    <div class="member-info">
+      <h3>Ann Wendo</h3>
+      <p>Accountant</p>
+      <div class="social-link">
+        <i class="fab fa-facebook-f"></i>
+        <i class="fab fa-instagram"></i>
+        <i class="fab fa-pinterest"></i>
+      </div>
+    </div>
+  </li>
+</ul>
+
+<section class="fill-banner banner-2-bg">
+  <div class="container">
+    <div class="row">
+      <div class="col-12 col-md-10 col-xl-5">
+        <h2>Best Skin <br class="d-none d-xl-inline-block" />Care Steps For Acne</h2>
+        <p style="color: #fdfcfc; background-color: #a78966a8; border-radius: 3%; text-align: center; padding: 3px;">
+          Embark on your journey to clear, acne-free skin with our expert guidance and personalized
+          consultation – your first step towards achieving a healthier, more radiant complexion.
+        </p>
+        <button id="loadChatButton4" class="btn">Free Consultation</button>
+      </div>
+    </div>
+
+  </div>
+  <div id="dynamicChatContainer4"
+    style="background-color: rgba(180, 174, 136, 0.822); width: max-content; float: right;"></div>
+</section>
+
+<!-- Dynamic Container for Chat Interface for the Second Section -->
+
+
+
+</div>
+
+<script>
+  const loadChatButton4 = document.getElementById('loadChatButton4');
+  const dynamicChatContainer4 = document.getElementById('dynamicChatContainer4');
+
+  loadChatButton4.addEventListener('click', () => {
+    // Perform an AJAX request to fetch the chat interface content
+    const xhr = new XMLHttpRequest();
+    xhr.onreadystatechange = function () {
+      if (xhr.readyState === 4 && xhr.status === 200) {
+        dynamicChatContainer4.innerHTML = xhr.responseText;
+
+        dynamicChatContainer4.style.display = 'block';
+      }
+    };
+    xhr.open('GET', '{% url "chat_interface" %}', true);
+    xhr.send();
+  });
+
+</script>
+
+<!-- JavaScript for the sendMessage function -->
+<script>
+  function sendMessage() {
+    const message = document.getElementById('message').value;
+    document.getElementById('message').value = '';
+    addMessage('You', message, 'user-message');
+
+    // You can add logic to send the message to the server here
+
+    // Simulate an admin response
+    setTimeout(function () {
+      addMessage('Therapist', 'Hello! How can I assist you?', 'admin-message');
+    }, 1000);
+  }
+
+  function addMessage(user, message, cssClass) {
+    const chatMessages = document.getElementById('chat-messages');
+    const messageDiv = document.createElement('div');
+    messageDiv.className = `message ${cssClass}`;
+    messageDiv.innerHTML = `<strong>${user}:</strong> ${message}`;
+    chatMessages.appendChild(messageDiv);
+    chatMessages.scrollTop = chatMessages.scrollHeight;
+  }
+</script>
+
+<script>
+
+  // Function to close the chat container
+  function closeChat() {
+    const dynamicChatContainer4 = document.getElementById('dynamicChatContainer4');
+    dynamicChatContainer4.style.display = 'none';
+
+  }
+
+</script>
+
+{% endblock content %}

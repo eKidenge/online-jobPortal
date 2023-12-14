@@ -1,0 +1,102 @@
+@font-face {
+	font-family: heading;
+	src: url('/static/core/Fonts/Montserrat-Regular.ttf');
+}
+
+@font-face {
+	font-family: para;
+	src: url('/static/core/fonts/Poppins-Regular.ttf');
+}
+
+h1 {
+	font-family: 'Open Sans', Helvetica, Arial, Lucida, sans-serif;
+	font-weight: 700;
+	text-transform: uppercase;
+	font-size: 25px;
+	letter-spacing: 5px;
+	line-height: 1.8em;
+}
+
+tr,
+th,
+td {
+	font-family: para;
+}
+
+/* Custom Modal Styles */
+.custom-modal {
+	display: none;
+	position: fixed;
+	z-index: 1050;
+	/* To appear on top of Bootstrap modals (adjust as needed) */
+	left: 0;
+	top: 0;
+	width: 100%;
+	height: 100%;
+	background-color: rgba(0, 0, 0, 0.7);
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.custom-modal-content {
+	background-color: #fff;
+	border: 1px solid #ccc;
+	border-radius: 4px;
+	box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+	text-align: center;
+	padding: 20px;
+	width: max-content;
+	margin: 7% 30% 30% 30%;
+}
+
+.custom-warning-text {
+	color: #d9534f;
+	/* Bootstrap danger color */
+	font-weight: bold;
+}
+
+.custom-contact-admin-text {
+	color: #50585f;
+	/* Bootstrap primary color */
+	font-weight: bold;
+	margin-top: 10px;
+}
+
+.custom-confirm-btn {
+	background-color: #25691c;
+	/* Bootstrap danger color */
+	color: #fff;
+	border: none;
+	border-radius: 5px;
+	padding: 10px 20px;
+	margin-right: 10px;
+	cursor: pointer;
+}
+
+.custom-cancel-btn {
+	background-color: #af3535;
+	/* Bootstrap primary color */
+	color: #fff;
+	border: none;
+	border-radius: 5px;
+	padding: 10px 20px;
+	cursor: pointer;
+}
+
+/* Custom Modal Animation (Optional) */
+.custom-modal-content {
+	animation: custom-slideIn 0.3s;
+}
+
+@keyframes custom-slideIn {
+	from {
+		transform: translateY(-50%);
+		opacity: 0;
+	}
+
+	to {
+		transform: translateY(0);
+		opacity: 1;
+	}
+}

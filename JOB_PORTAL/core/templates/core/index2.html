@@ -1,0 +1,457 @@
+{% load static %}
+
+
+
+<!DOCTYPE html>
+<html lang=en>
+
+<head>
+  <meta charset=UTF-8 />
+  <meta name=viewport content="width=device-width, initial-scale=1.0" />
+  <title>Beauty Palour</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link rel="stylesheet" href="{% static 'core/style.css' %}" />
+  <link rel="stylesheet" href="{% static 'core/style2.css' %}" />
+</head>
+
+<body>
+  <header class=main-header>
+    <div class=main-info>
+      <div class=container>
+        <div class=row>
+          <h1 class=logo>
+            <a href=#>
+              <img src="{% static 'core/images/logo.svg' %}" class="logo-light" />
+
+            </a>
+          </h1>
+          <div class=contact>
+            <div class=contact-icon>
+              <i class="fas fa-phone-alt"></i>
+            </div>
+            <div class=contact-main>
+              <a href=#>0743299966</a>
+              <!-- <br>
+              <a href=#>+254 718909038</a> -->
+            </div>
+          </div>
+          <div class=contact>
+            <div class=contact-icon>
+              <i class="fas fa-map-marker-alt"></i>
+            </div>
+            <div class=contact-main>
+              <a href=#>Moi avenue, Mombasa, Kenya</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class=main-nav>
+      <div class=container>
+        <nav>
+          <div>
+            <a href=# class=active>HOME</a>
+          </div>
+          <div>
+            <a href=#>About Us</a>
+          </div>
+          <div>
+            <a href=#>Products & Services</a>
+          </div>
+          <div>
+            <a href=#>Booking</a>
+          </div>
+          <div>
+            <a href=#>Blog</a>
+          </div>
+          <div>
+            <!-- <div>
+              <a href=#>SignUp</a>
+            </div> -->
+
+            <a href=#>CONTACTS</a>
+          </div>
+
+          <div class=search>
+            <a href=#>
+              <i class="fas fa-search"></i>
+            </a>
+          </div>
+        </nav>
+      </div>
+    </div>
+  </header>
+  <section class=kv>
+    <div class=slider-banner>
+      <div class=slider-container>
+        <div class="item item-kv-1 active">
+          <div class=container>
+            <div class=row>
+              <div class="item-kv-txt col-md-6 col-xl-4">
+                <h2> Look Good | Feel Good </h2>
+                <h3 class> Serenity Haven</h3>
+                <a href=# class=btn>make an appointment</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <style>
+    .row {
+      --bs-gutter-x: 1.5rem;
+      --bs-gutter-y: 0;
+      display: flex;
+      margin-top: calc(var(--bs-gutter-y) * -1);
+      margin-right: calc(var(--bs-gutter-x)/ -2);
+      margin-left: calc(var(--bs-gutter-x)/ -2);
+      align-content: space-around;
+      flex-direction: row;
+    }
+  </style>
+  <section class=doc-section>
+    <div class=container>
+      <div class=row>
+        <h2 class=col-12>How it Works</h2><br><br><br><br><br><br><br><br>
+        <div class="row rowsetting mt-5">
+          <div class="col-lg-2 col-md-3 col-sm-4 col-10 d-block m-auto text-center d-inline-block">
+            <a href="#"><i class="fa fa-user-circle fa-3x mb-2" aria-hidden="true"></i></a><br>
+            <h4> Login Or SignUp </h4><br>
+            <p style="display: inline-block;"> Unlock the Beauty Experience: Log In and Get Started!</p>
+          </div>
+          <div class="col-lg-2 col-md-3 col-sm-4 col-10 d-block m-auto text-center d-inline-block">
+            <a href="#"><i class="fa fa-briefcase fa-3x mb-2" aria-hidden="true"></i></a>
+            <h4> Choose Service </h4><br>
+            <p style="display: inline-block;"> Your Appointment with Beauty Starts with a Simple Click</p>
+          </div>
+          <div class="col-lg-2 col-md-3 col-sm-4 col-10 d-block m-auto text-center d-inline-block">
+            <a href="#"><i class="fa fa-calendar fa-3x mb-2" aria-hidden="true"></i></a>
+            <h4> Book Appointment </h4><br>
+            <p style="display: inline-block;"> Your Beauty Calendar Awaits – Set an Appointment Today</p>
+          </div>
+          <div class="col-lg-2 col-md-3 col-sm-4 col-10 d-block m-auto text-center d-inline-block">
+            <a href="#"><i class="fa fa-street-view fa-3x mb-2" aria-hidden="true"></i></a>
+            <h4> Visit Shop </h4><br>
+            <p style="display: inline-block;"> Our Shop Awaits Your Visit</p>
+          </div>
+        </div>
+
+
+  </section>
+  <section class="fill-banner banner-1-bg">
+    <div class=container>
+      <div class=row>
+        <div class="col-12 col-md-10 col-xl-5">
+          <h2> Luxury Spa Experiences </h2>
+          <p> We are dedicated to delivering exceptional and transformative spa experiences through a harmonious blend
+            of natural products, expert therapies, and a tranquil ambiance. </p>
+          <a href=# class=btn>free consultation</a>
+        </div>
+      </div>
+    </div>
+  </section>
+  <div class=services-container>
+    <div class=inner-container>
+      <h1 class=section-title>Our Special Offers</h1>
+      <div class=border></div>
+      <div class=service-container>
+        <div class=service-box>
+          <div class=service-icon>
+            <img src="{% static 'core/images/Eyebrow-shaping-and-tinting.png' %}" />
+
+          </div>
+          <div class="service-title">
+            <b>Eyebrow-shaping-and-tinting</b>
+          </div>
+          <div class="description">First-time
+            clients can enjoy a 20% discount on their first visit, leaving you with beautifully enhanced brows.</div>
+        </div>
+        <div class="service-box">
+          <div class="service-icon">
+            <img src="{% static 'core/images/Facial-treatments.png' %}" />
+          </div>
+          <div class="service-title">
+            <b>Facial treatments</b>
+          </div>
+          <div class="description">Book a series of three facials, and receive a complimentary luxury skincare product
+            to maintain your radiant complexion.</div>
+        </div>
+        <div class="service-box">
+          <div class="service-icon">
+            <img src="{% static 'core/images/Haircut-and-styling.png' %}" style="margin-top: 0.3em" />
+          </div>
+          <div class="service-title">
+            <b>Haircut and styling</b>
+          </div>
+          <div class="description">Book a haircut and styling session with our hairstylists and receive a complimentary
+            deep conditioning treatment to keep your hair looking stunning.</div>
+        </div>
+        <div class="service-box">
+          <div class="service-icon">
+            <img src="{% static 'core/images/Hair-removal.png' %}" />
+          </div>
+          <div class="service-title">
+            <b>Hair removal</b>
+          </div>
+          <div class="description">Book a hair removal package and receive a 15% discount on your next visit for silky,
+            smooth skin.</div>
+        </div>
+        <div class="service-box">
+          <div class="service-icon">
+            <img src="{% static 'core/images/skin-rejuvenation.png' %}" />
+          </div>
+          <div class="service-title">
+            <b>Skin rejuvenation</b>
+          </div>
+          <div class="description">Purchase a series of three sessions, and receive a complimentary skincare
+            consultation to maintain your youthful, radiant complexion.</div>
+        </div>
+        <div class="service-box">
+          <div class="service-icon">
+            <img src="{% static 'core/images/Spa-treatments.png' %}" />
+          </div>
+          <div class="service-title">
+            <b>Spa treatments</b>
+          </div>
+          <div class="description"> Book a spa day for two, and enjoy a complimentary upgrade to a couples' massage and
+            a relaxing spa gift.</div>
+        </div>
+      </div>
+    </div>
+
+    <ul class="list-members">
+      <li class="member">
+        <div class="member-image">
+          <img src="{% static 'core/images/image5.jpg' %}" />
+        </div>
+        <div class="member-info">
+          <h3>Mercy Mogotio</h3>
+          <p>Chief Executive</p>
+          <div class="social-link">
+            <a href="https://www.facebook.com/jeptepkenym/">
+              <i class="fab fa-facebook-f"></i>
+            </a>
+            <a href="https://www.instagram.com/jeptepkeny.mogotio/">
+              <i class="fab fa-instagram"></i>
+            </a>
+            <a href="https://www.pinterest.com/jeptepkenymercy/">
+              <i class="fab fa-pinterest"></i>
+            </a>
+          </div>
+        </div>
+      </li>
+      <li class="member">
+        <div class="member-image">
+          <img src="{% static 'core/images/image2.jpg' %}" />
+        </div>
+        <div class="member-info">
+          <h3>Wairimu Jenny</h3>
+          <p>Product Manager</p>
+          <div class="social-link">
+            <i class="fab fa-facebook-f"></i>
+            <i class="fab fa-instagram"></i>
+            <i class="fab fa-pinterest"></i>
+          </div>
+        </div>
+      </li>
+      <li class="member">
+        <div class="member-image">
+          <img src="{% static 'core/images/image3.jpg' %}" />
+        </div>
+        <div class="member-info">
+          <h3>Agnes Awiti</h3>
+          <p>CTO</p>
+          <div class="social-link">
+            <i class="fab fa-facebook-f"></i>
+            <i class="fab fa-instagram"></i>
+            <i class="fab fa-pinterest"></i>
+          </div>
+        </div>
+      </li>
+      <li class="member">
+        <div class="member-image">
+          <img src="{% static 'core/images/image6.jpg' %}" />
+        </div>
+        <div class="member-info">
+          <h3>Ann Wendo</h3>
+          <p>Accountant</p>
+          <div class="social-link">
+            <i class="fab fa-facebook-f"></i>
+            <i class="fab fa-instagram"></i>
+            <i class="fab fa-pinterest"></i>
+          </div>
+        </div>
+      </li>
+    </ul>
+    <section class="fill-banner banner-2-bg">
+      <div class="container">
+        <div class="row">
+          <div class="col-12 col-md-10 col-xl-5">
+            <h2>Best Skin <br class="d-none d-xl-inline-block" />Care Steps For Acne</h2>
+            <p>Our expert skincare professionals are here to guide you through a customized acne treatment plan. Say
+              goodbye to blemishes and hello to a renewed, confident you.</p>
+            <a href="#" class="btn">free consultation</a>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="blog">
+      <div class="container">
+        <div class="row">
+          <h2 class="col-12">Latest Blog Posts</h2>
+          <article class="col-8 col-md-6 col-xl-4">
+            <div class="post">
+              <a class="img-hover" href="#">
+                <img src="{% static 'core/images/blog-1.jpg' %}" />
+              </a>
+              <h2>
+                <a href="#">Best skin care products</a>
+              </h2>
+              <h3 class="time">jan 19, 2023 at 5:12pm</h3>
+              <p>Explore our blog to discover insights on the best skin care products. Our articles are your source for
+                expert advice to keep your skin glowing and healthy. </p>
+            </div>
+          </article>
+          <article class="col-8 col-md-6 col-xl-4">
+            <div class="post">
+              <a class="img-hover" href="#">
+                <img src="{% static 'core/images/blog-2.jpg' %}" />
+              </a>
+              <h2>
+                <a href="#">Secrets for healthier-looking skin</a>
+              </h2>
+              <h3 class="time">feb 19, 2023 at 9:45am</h3>
+              <p>Unlock the secrets to achieving healthier, more radiant skin with our latest blog post. Our experts
+                share valuable insights and tips to help you maintain a youthful and glowing complexion. Explore the
+                article to discover the path to beautiful, healthy skin....
+              </p>
+            </div>
+          </article>
+          <article class="col-8 col-md-6 col-xl-4">
+            <div class="post">
+              <a class="img-hover" href="#">
+                <img src="{% static 'core/images/blog-3.jpg' %}" />
+              </a>
+              <h2>
+                <a href="#">Nail polish design ideas</a>
+              </h2>
+              <h3 class="time">dec 26, 2023 at 5:12pm</h3>
+              <p>Get inspired by the latest nail polish design ideas. Our blog post offers creative and trendy
+                suggestions to keep your nails looking stylish. Explore the article and bring new life to your nail art
+                with our unique ideas.</p>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+    <footer class=main-footer>
+      <div class=container>
+        <div class=row>
+          <div class=col-4>
+            <div class=footer-logo>
+              <a href=#>
+                <img src="{%static 'core/images/logo.svg' %}" class=logo-light />
+              </a>
+            </div>
+            <ul class=sns>
+              <li class=icon-fb>
+                <a href=#>
+                  <i class="fab fa-facebook-f"></i>
+                </a>
+              </li>
+              <li class=icon-twitter>
+                <a href=#>
+                  <i class="fab fa-twitter"></i>
+                </a>
+              </li>
+              <li class=icon-instagram>
+                <a href=#>
+                  <i class="fab fa-instagram"></i>
+                </a>
+              </li>
+              <li class=icon-pinterest>
+                <a href=#>
+                  <i class="fab fa-pinterest"></i>
+                </a>
+              </li>
+            </ul>
+          </div>
+          <div class=col-4>
+            <h3>CONTACT US</h3>
+            <div class=contact>
+              <div class=contact-icon>
+                <i class="fas fa-phone-alt"></i>
+              </div>
+              <div class=contact-main>
+                <a href=#>+254743299966</a>
+                <br />
+                <a href=#>0718909038</a>
+              </div>
+            </div>
+            <div class=contact>
+              <div class=contact-icon>
+                <i class="fas fa-map-marker-alt"></i>
+              </div>
+              <div class=contact-main>
+                <a href=#>Moi avenue,Mombasa, Kenya</a>
+              </div>
+            </div>
+            <div class=contact>
+              <div class=contact-icon>
+                <i class="fas fa-envelope"></i>
+              </div>
+              <div class=contact-main>
+                <a href=#>serenityhavenspa@yahoo.com</a>
+              </div>
+            </div>
+          </div>
+          <div class=col-4>
+            <h3>Any Query</h3>
+            <p> Enter your email address to receive up-to-date blog, new patient services and other useful stuff,
+              delivered right to your inbox. </p>
+            <div class=form-group>
+              <input class=form-control type=text placeholder="Your e-mail..." />
+              <button class=submit-btn type=submit>Subscribe</button>
+            </div>
+          </div>
+        </div>
+        <div class=row>
+          <div class=copyright> © 2023 Project by <a href="">Jeptepkeny Mercy</a>
+          </div>
+        </div>
+      </div>
+    </footer>
+    <div id=goTop class=goTop></div>
+    <script src="{% static 'js/jquery.min.js' %}"></script>
+
+    <script>
+      $(function () {
+        $(window).scroll(function () {
+          if ($(document).scrollTop() > 60) {
+            $(".main-nav").addClass("sticky")
+          } else {
+            $(".main-nav").removeClass("sticky")
+          }
+        });
+        $("#goTop").click(function () {
+          $("html,body").animate({
+            scrollTop: 0
+          }, "slow");
+          return false
+        });
+        $(window).scroll(function () {
+          if ($(this).scrollTop() > 300) {
+            $("#goTop").addClass("active")
+          } else {
+            $("#goTop").removeClass("active");
+            return false
+          }
+        }).scroll()
+      });
+    </script>
+</body>
+
+</html>

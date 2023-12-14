@@ -1,0 +1,109 @@
+{% load static %}
+
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title> Serenity | About </title>
+
+	<link rel="stylesheet" href="{% static 'core/css/style/bootstrap.min.css' %}">
+	<link rel="stylesheet" href="{% static 'core/css/about.css' %}">
+
+	<link rel="stylesheet" href="{% static 'core/style.css' %}" />
+	<link rel="stylesheet" href="{% static 'core/style2.css' %}" />
+</head>
+
+
+<body>
+
+	<!-- Your navbar content goes here -->
+
+	{% include 'core/navbar.html' %}
+
+
+
+
+	{% block content %}
+
+
+
+	<section class="about mt-5">
+		<div class="container">
+			<div class="row">
+
+				<div class="col-lg-6 img-box">
+					<img src="{% static 'core/images/AboutUs.jpg' %}" alt="AboutUs">
+				</div>
+				<div class="col-lg-6 text-box">
+					<h5> About Us </h5>
+					<p> Serenity Haven & Beauty Spa is a high-end spa that offers top of the range services for women
+						who want to look and feel their best. We are located in Moi Avenue, Mombasa, in a serene and
+						spacious setting that invites you to relax and unwind.
+
+						Our services include massages, facials, hair care, manicures, pedicures, waxing, threading, and
+						more. We use only the finest products and equipment to ensure quality and safety for our
+						clients. Our staff are highly trained and experienced in providing personalized and professional
+						treatments that suit your needs and preferences.
+
+						At Malkia Beauty & Wellness Spa, we believe that every woman is a queen and deserves to be
+						pampered like one. That’s why we strive to create a welcoming and comfortable atmosphere where
+						you can enjoy our services and feel rejuvenated. Whether you need a quick touch-up or a full-day
+						spa package, we have something for you.
+
+						Book your appointment today and discover why we are the best spa in Mombasa. You can also follow
+						us on Facebook, Instagram and Twitter to stay updated on our latest offers and promotions. We
+						look forward to seeing you soon at Serenity Haven & Beauty Spa, where beauty meets royalty..
+					</p>
+				</div>
+
+			</div>
+		</div>
+	</section>
+
+	{% endblock content %}
+	{% include 'core/ourteam.html' %}
+	{% include 'core/blog.html' %}
+
+	{% include 'core/footer.html' %}
+
+	<script src="{% static 'core/js/jquery.js' %}"></script>
+	<script src="{% static 'core/js/popper.js' %}"></script>
+	<script src="{% static 'core/js/all.min.js' %}"></script>
+	<script src="{% static 'core/js/bootstrap.js' %}"></script>
+
+	<script src="{% static 'core/js/main.js' %}"></script>
+
+	<script src="{% static 'js/jquery.min.js' %}"></script>
+
+	<script>
+		$(function () {
+			$(window).scroll(function () {
+				if ($(document).scrollTop() > 60) {
+					$(".main-nav").addClass("sticky")
+				} else {
+					$(".main-nav").removeClass("sticky")
+				}
+			});
+			$("#goTop").click(function () {
+				$("html,body").animate({
+					scrollTop: 0
+				}, "slow");
+				return false
+			});
+			$(window).scroll(function () {
+				if ($(this).scrollTop() > 300) {
+					$("#goTop").addClass("active")
+				} else {
+					$("#goTop").removeClass("active");
+					return false
+				}
+			}).scroll()
+		});
+	</script>
+
+</body>
+
+</html>

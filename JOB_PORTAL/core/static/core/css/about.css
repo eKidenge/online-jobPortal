@@ -1,0 +1,73 @@
+@font-face {
+	font-family: AboutPara;
+	src: url('/static/core/Fonts/Montserrat-Regular.ttf');
+}
+
+@font-face {
+	font-family: AboutHeading;
+	src: url('/static/core/fonts/Poppins-Regular.ttf');
+}
+
+
+
+
+
+.about .img-box {
+	width: 450px;
+	height: 600px;
+	margin-top: 31%;
+}
+
+.about .img-box img {
+	width: 100%;
+}
+
+.about .text-box h5 {
+	/* font-size: 1.4rem; */
+	margin-top: 38%;
+	margin-bottom: 40px;
+	font-weight: 500;
+	/* letter-spacing: 2px; */
+	/* text-transform: uppercase; */
+	/* font-family: AboutHeading; */
+	margin-left: 10%;
+	font-family: 'Prata', Georgia, "Times New Roman", serif;
+	font-size: 50px;
+	line-height: 1.2em;
+	text-align: center;
+	text-shadow: 0em 0.1em 0.1em #000000;
+	color: #dab007 !important;
+}
+
+.about .text-box p {
+	font-size: 1rem;
+	/* margin-top: 12px; */
+	font-weight: 100;
+	font-family: AboutPara;
+	margin-top: 5%;
+	margin-left: 10%;
+	font-family: 'Open Sans', Helvetica, Arial, Lucida, sans-serif;
+	line-height: 2em;
+
+}
+
+.text_inner h2 {
+	font-family: 'Prata', Georgia, "Times New Roman", serif;
+	font-size: 50px;
+	line-height: 1.4em;
+	color: #333;
+	padding-bottom: 10px;
+	font-weight: 500;
+}
+
+.text-inner {
+	font-family: 'Open Sans', Helvetica, Arial, Lucida, sans-serif;
+	text-transform: uppercase;
+	letter-spacing: 3px;
+	line-height: 1.8em;
+	font-size: 14px;
+}
+
+.text-inner p {
+	padding-bottom: 1em;
+}

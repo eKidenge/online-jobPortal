@@ -1,0 +1,87 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home | Staff</title>
+
+    <!-- Bootstrap Files -->
+    <link rel="stylesheet" href="{% static 'core/styleU.css' %}" />
+    <link rel="stylesheet" href="{% static 'core/styleU2.css' %}" />
+</head>
+{% block content %}
+
+
+{% include 'core/navbar.html' %}
+
+<body>
+
+    </header>
+
+    <section class=kv>
+        <div class=slider-banner>
+            <div class=slider-container>
+                <div class="item item-kv-1 active"
+                    style="background-image: url('static/core/images/user.jpg') !important;">
+                    <div class=container>
+                        <div class=row>
+                            <div class="item-kv-txt col-md-6 col-xl-4"><br><br><br>
+                                <h2>Back in action, {{staff.name}}! </h2><br>
+                                <h3 class style="font-size: 30px; color: #da8707;">Let's make our clients shine.</h3>
+                                <br><br><br><br>
+                                <a href="{% url 'pendingAppointments' %}" class=btn>View Appointments</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- All JavaScript Link -->
+    <script src="{% static 'core/js/jquery.js' %}"></script>
+    <script src="{% static 'core/js/popper.js' %}"></script>
+    <script src="{% static 'core/js/all.min.js' %}"></script>
+    <script src="{% static 'core/js/bootstrap.js' %}"></script>
+
+    <script src="{% static 'core/js/main.js' %}"></script>
+
+    <script src="{% static 'js/jquery.min.js' %}"></script>
+
+    <script>
+        $(function () {
+            $(window).scroll(function () {
+                if ($(document).scrollTop() > 60) {
+                    $(".main-nav").addClass("sticky")
+                } else {
+                    $(".main-nav").removeClass("sticky")
+                }
+            });
+            $("#goTop").click(function () {
+                $("html,body").animate({
+                    scrollTop: 0
+                }, "slow");
+                return false
+            });
+            $(window).scroll(function () {
+                if ($(this).scrollTop() > 300) {
+                    $("#goTop").addClass("active")
+                } else {
+                    $("#goTop").removeClass("active");
+                    return false
+                }
+            }).scroll()
+        });
+    </script>
+    {% include "core/howitworks.html" %}
+
+    {% endblock content %}
+
+
+    {% include 'core/blog.html' %}
+
+    {% include "core/footer.html" %}

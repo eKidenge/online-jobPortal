@@ -1,0 +1,300 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<title>serentiy | Products & Services</title>
+	{% block custom_css %}
+	<link rel="stylesheet" href="{% static 'core/bootstrap/css/bootstrap.min.css' %}">
+	<link rel="stylesheet" href="{% static 'core/css/services.css' %}">
+
+
+	<link rel="stylesheet" href="{% static 'core/style.css' %}" />
+	<link rel="stylesheet" href="{% static 'core/style2.css' %}" />
+
+
+</head>
+<div class="header">
+	<div class="top-text text-center">
+		<h4>Your Guide to Our Products & Services</h4>
+		<h1>Enjoy Professinal Beauty Services!</h1>
+		<p>Providing expert skin care advice & beauty services <br> using natural products to cater for any skin.
+		</p>
+		<button class="btn">
+			<a href="{% url 'bookappointment' %}" style="color: aliceblue;"> Book Appointment </a>
+		</button>
+	</div>
+</div>
+{% endblock custom_css %}
+
+<body>
+
+	<!-- Your navbar content goes here -->
+
+	{% include 'core/navbar.html' %}
+
+
+
+
+	{% block content %}
+
+
+	<div class="container mt-5 mb-5">
+
+		<h1 class=section-title>Our Services</h1>
+		<div class=border></div>
+		<div class="mx-2">
+			{% for service in services %}
+			<div class="product card">
+				<div class="imgBox">
+					<img src="{{service.image.url}}" class="card-img-top">
+				</div>
+				<style>
+					.card-title {
+						margin-bottom: 10px;
+					}
+
+					.card-text.price {
+						margin-left: 15px;
+						position: relative;
+					}
+				</style>
+				<div class="details card-body">
+					<h2 class="card-title"> {{service.name}} </h2>
+					<div class="card-text price"> Ksh {{service.price}} </div>
+					<a href="{% url 'login' %}" class="btn-text"> Book Now </a>
+				</div>
+			</div>
+			{% endfor %}
+			<div class="clearfix"></div>
+		</div> <br><br><br><br><br><br>
+
+		<h1 class=section-title>Our Products</h1>
+		<div class=border></div>
+		<div class="mx-2">
+			{% for product in products %}
+			<div class="product card">
+				<div class="imgBox">
+					<img src="{{product.image.url}}" class="card-img-top">
+				</div>
+				<style>
+					.card-title {
+						margin-bottom: 10px;
+					}
+
+					.card-text.price {
+						margin-left: 15px;
+						position: relative;
+					}
+				</style>
+				<div class="details card-body">
+					<h2 class="card-title"> {{product.name}} </h2>
+					<div class="card-text price"> Ksh {{product.price}} </div>
+					<a href="{% url 'login' %}" class="btn-text"> Add to Cart </a>
+				</div>
+			</div>
+			{% endfor %}
+			<div class="clearfix"></div>
+		</div>
+	</div>
+
+
+
+
+	<div class=services-container>
+		<div class=inner-container>
+			<h1 class=section-title>Our Special Offers</h1>
+			<div class=border></div>
+			<div class=service-container>
+				<div class=service-box>
+					<div class=service-icon>
+						<img src="{% static 'core/images/Eyebrow-shaping-and-tinting.png' %}" />
+
+					</div>
+					<div class="service-title">
+						<b>Eyebrow-shaping-and-tinting</b>
+					</div>
+					<div class="description">First-time
+						clients can enjoy a 20% discount on their first visit, leaving you with beautifully enhanced
+						brows.
+					</div>
+				</div>
+				<div class="service-box">
+					<div class="service-icon">
+						<img src="{% static 'core/images/Facial-treatments.png' %}" />
+					</div>
+					<div class="service-title">
+						<b>Facial treatments</b>
+					</div>
+					<div class="description">Book a series of three facials, and receive a complimentary luxury skincare
+						product
+						to maintain your radiant complexion.</div>
+				</div>
+				<div class="service-box">
+					<div class="service-icon">
+						<img src="{% static 'core/images/Haircut-and-styling.png' %}" style="margin-top: 0.3em" />
+					</div>
+					<div class="service-title">
+						<b>Haircut and styling</b>
+					</div>
+					<div class="description">Book a haircut and styling session with our hairstylists and receive a
+						complimentary
+						deep conditioning treatment to keep your hair looking stunning.</div>
+				</div>
+				<div class="service-box">
+					<div class="service-icon">
+						<img src="{% static 'core/images/Hair-removal.png' %}" />
+					</div>
+					<div class="service-title">
+						<b>Hair removal</b>
+					</div>
+					<div class="description">Book a hair removal package and receive a 15% discount on your next visit
+						for
+						silky,
+						smooth skin.</div>
+				</div>
+				<div class="service-box">
+					<div class="service-icon">
+						<img src="{% static 'core/images/skin-rejuvenation.png' %}" />
+					</div>
+					<div class="service-title">
+						<b>Skin rejuvenation</b>
+					</div>
+					<div class="description">Purchase a series of three sessions, and receive a complimentary skincare
+						consultation to maintain your youthful, radiant complexion.</div>
+				</div>
+				<div class="service-box">
+					<div class="service-icon">
+						<img src="{% static 'core/images/Spa-treatments.png' %}" />
+					</div>
+					<div class="service-title">
+						<b>Spa treatments</b>
+					</div>
+					<div class="description"> Book a spa day for two, and enjoy a complimentary upgrade to a couples'
+						massage and
+						a relaxing spa gift.</div>
+				</div>
+			</div>
+		</div><br><br><br>
+
+		<section class="fill-banner banner-2-bg">
+			<div class="container">
+				<div class="row">
+					<div class="col-12 col-md-10 col-xl-5">
+						<h2>Best Skin <br class="d-none d-xl-inline-block" />Care Steps For Acne</h2>
+						<p
+							style="color: #fdfcfc; background-color: #a78966a8; border-radius: 3%; text-align: center; padding: 3px;">
+							Embark on your journey to clear, acne-free skin with our expert guidance and personalized
+							consultation – your first step towards achieving a healthier, more radiant complexion.
+						</p>
+						<button id="loadChatButton3" class="btn">Free Consultation</button>
+					</div>
+				</div>
+
+			</div>
+			<div id="dynamicChatContainer3"
+				style="background-color: rgba(180, 174, 136, 0.822); width: max-content; float: right;"></div>
+		</section>
+
+		<!-- Dynamic Container for Chat Interface for the Second Section -->
+
+
+
+	</div>
+
+	<script>
+		const loadChatButton1 = document.getElementById('loadChatButton3');
+		const dynamicChatContainer1 = document.getElementById('dynamicChatContainer3');
+
+		loadChatButton3.addEventListener('click', () => {
+			// Perform an AJAX request to fetch the chat interface content
+			const xhr = new XMLHttpRequest();
+			xhr.onreadystatechange = function () {
+				if (xhr.readyState === 4 && xhr.status === 200) {
+					dynamicChatContainer1.innerHTML = xhr.responseText;
+
+					dynamicChatContainer1.style.display = 'block';
+				}
+			};
+			xhr.open('GET', '{% url "chat_interface" %}', true);
+			xhr.send();
+		});
+
+	</script>
+
+	<!-- JavaScript for the sendMessage function -->
+	<script>
+		function sendMessage() {
+			const message = document.getElementById('message').value;
+			document.getElementById('message').value = '';
+			addMessage('You', message, 'user-message');
+
+			// You can add logic to send the message to the server here
+
+			// Simulate an admin response
+			setTimeout(function () {
+				addMessage('Therapist', 'Hello! How can I assist you?', 'admin-message');
+			}, 1000);
+		}
+
+		function addMessage(user, message, cssClass) {
+			const chatMessages = document.getElementById('chat-messages');
+			const messageDiv = document.createElement('div');
+			messageDiv.className = `message ${cssClass}`;
+			messageDiv.innerHTML = `<strong>${user}:</strong> ${message}`;
+			chatMessages.appendChild(messageDiv);
+			chatMessages.scrollTop = chatMessages.scrollHeight;
+		}
+	</script>
+
+	<script>
+
+		// Function to close the chat container
+		function closeChat() {
+			const dynamicChatContainer3 = document.getElementById('dynamicChatContainer3');
+			dynamicChatContainer3.style.display = 'none';
+
+		}
+
+	</script>
+	{% endblock content %}
+
+	<script src="{% static 'core/js/jquery.js' %}"></script>
+	<script src="{% static 'core/js/popper.js' %}"></script>
+	<script src="{% static 'core/js/all.min.js' %}"></script>
+	<script src="{% static 'core/js/bootstrap.js' %}"></script>
+
+	<script src="{% static 'core/js/main.js' %}"></script>
+
+	<script src="{% static 'js/jquery.min.js' %}"></script>
+
+	<script>
+		$(function () {
+			$(window).scroll(function () {
+				if ($(document).scrollTop() > 60) {
+					$(".main-nav").addClass("sticky")
+				} else {
+					$(".main-nav").removeClass("sticky")
+				}
+			});
+			$("#goTop").click(function () {
+				$("html,body").animate({
+					scrollTop: 0
+				}, "slow");
+				return false
+			});
+			$(window).scroll(function () {
+				if ($(this).scrollTop() > 300) {
+					$("#goTop").addClass("active")
+				} else {
+					$("#goTop").removeClass("active");
+					return false
+				}
+			}).scroll()
+		});
+	</script>
+	{% include 'core/footer.html' %}
+
+</body>
+
+</html>

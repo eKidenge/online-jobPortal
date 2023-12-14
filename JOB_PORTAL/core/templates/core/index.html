@@ -1,0 +1,20 @@
+{% extends 'core/base.html' %}
+
+{% load static %}
+
+{% block custom_css %}
+<link rel="stylesheet" href="{% static 'core/style.css' %}" />
+<link rel="stylesheet" href="{% static 'core/style2.css' %}" />
+<link rel="stylesheet" href="{% static 'core/css/index.css' %}">
+{% endblock custom_css %}
+
+{% block content %}
+
+{% include "core/header.html" %}
+
+{% include "core/howitworks.html" %}
+
+{% include "core/services.html" %}
+
+
+{% endblock content %}

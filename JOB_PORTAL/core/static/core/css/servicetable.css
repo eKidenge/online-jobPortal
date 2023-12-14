@@ -1,0 +1,19 @@
+@font-face{
+    font-family: content;
+    src: url('/static/core/fonts/Poppins-Regular.ttf');
+}
+
+/* Services Price */
+
+.service-sec h1{
+    font-size: 45px;
+	font-family: manisha2;
+	/* text-align: center; */
+}
+.service-sec p{
+	font-family: manisha;
+	font-size: 16px;
+}
+tr, th, td{
+	font-family: content;
+}

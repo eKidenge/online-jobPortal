@@ -1,0 +1,24 @@
+/* How It Works */
+
+.services{
+	padding: 50px 0px 60px;
+}
+.services h1{
+	font-size: 45px;
+    font-family: manisha2;
+}
+.services p{
+    font-family: manisha;
+	font-size: 16px;
+}
+.rowsetting i{
+	color: #1ebfae;
+}
+.rowsetting h2{
+	font-size: 25px;
+    font-family: manisha2;
+}
+.rowsetting p{
+	padding: 10px;
+	color: #6c757d !important;
+}

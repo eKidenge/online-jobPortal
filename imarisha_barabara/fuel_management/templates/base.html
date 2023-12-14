@@ -1,0 +1,22 @@
+<!-- base.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}Imarisha Barabara{% endblock %}</title>
+</head>
+<body>
+    <div id="header">
+        <h1>Imarisha Barabara Fuel Management</h1>
+    </div>
+
+    <div id="content">
+        {% block content %}{% endblock %}
+    </div>
+
+    <div id="footer">
+        <p>&copy; 2023 Imarisha Barabara</p>
+    </div>
+</body>
+</html>

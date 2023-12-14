@@ -1,0 +1,243 @@
+{% load static %}
+
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>{% block title %} Services {% endblock title %}</title>
+
+
+<link rel="stylesheet" href="{% static 'core/bootstrap/css/bootstrap.min.css' %}">
+<link rel="stylesheet" href="{% static 'core/css/services.css' %}">
+
+
+<link rel="stylesheet" href="{% static 'core/style.css' %}" />
+<link rel="stylesheet" href="{% static 'core/style2.css' %}" />
+
+
+
+
+{% block content %}
+
+<section class="fill-banner banner-1-bg">
+	<div class=container>
+		<div class=row>
+			<div class="col-12 col-md-10 col-xl-5">
+				<h2> Luxury Spa Experiences </h2>
+				<p
+					style="color: #fdfcfc; background-color: #a78966a8; border-radius: 3%; text-align: center; padding: 3px;">
+					We are dedicated to delivering exceptional and transformative spa experiences through a harmonious
+					blend
+					of natural products, expert therapies, and a tranquil ambiance. </p>
+				<button id="loadChatButton1" class="btn">Free Consultation</button>
+			</div>
+		</div>
+	</div>
+</section>
+
+<!-- Dynamic Container for Chat Interface -->
+<div id="dynamicChatContainer1">
+
+</div>
+
+
+
+<div class="container mt-5 mb-5">
+
+	<h1 class=section-title>Our Services</h1>
+	<div class=border></div>
+	<div class="mx-2">
+		{% for service in services %}
+		<div class="product card">
+			<div class="imgBox">
+				<img src="{{service.image.url}}" class="card-img-top">
+			</div>
+			<style>
+				.card-title {
+					margin-bottom: 10px;
+				}
+
+				.card-text.price {
+					margin-left: 15px;
+					position: relative;
+				}
+
+				/* Position and align the chat container on the right side and center */
+				#dynamicChatContainer1 {
+					display: none;
+					position: fixed;
+					top: 50%;
+					right: 5%;
+					transform: translateY(-50%);
+					background-color: #e0e0e0a4;
+					border: 1px solid #d6d6d6;
+					box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+					padding: 20px;
+					border-radius: 10px;
+					width: max-content;
+					/* Set the width according to your design */
+				}
+
+				#dynamicChatContainer2 {
+					display: none;
+					position: fixed;
+					top: 50%;
+					right: 5%;
+					transform: translateY(-50%);
+
+					/* Correct vertical alignment */
+					background-color: #e0e0e0a4;
+					border: 1px solid #d6d6d6;
+					box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+					padding: 20px;
+					border-radius: 10px;
+					width: max-content;
+					/* Set the width according to your design */
+				}
+			</style>
+			<div class="details card-body">
+				<h2 class="card-title"> {{service.name}} </h2>
+				<div class="card-text price"> Ksh {{service.price}} </div>
+				<a href="{% url 'login' %}" class="btn-text"> Book Now </a>
+			</div>
+		</div>
+		{% endfor %}
+		<div class="clearfix"></div>
+	</div>
+</div>
+<section class="fill-banner banner-2-bg">
+	<div class="container">
+		<div class="row">
+			<div class="col-12 col-md-10 col-xl-5">
+				<h2>Best Skin <br class="d-none d-xl-inline-block" />Care Steps For Acne</h2>
+				<p
+					style="color: #fdfcfc; background-color: #a78966a8; border-radius: 3%; text-align: center; padding: 3px;">
+					Embark on your journey to clear, acne-free skin with our expert guidance and personalized
+					consultation – your first step towards achieving a healthier, more radiant complexion.
+				</p>
+				<button id="loadChatButton2" class="btn">Free Consultation</button>
+			</div>
+		</div>
+	</div>
+</section>
+
+<!-- Dynamic Container for Chat Interface for the Second Section -->
+<div id="dynamicChatContainer2">
+
+
+</div>
+
+<script>
+	const loadChatButton1 = document.getElementById('loadChatButton1');
+	const dynamicChatContainer1 = document.getElementById('dynamicChatContainer1');
+
+	const loadChatButton2 = document.getElementById('loadChatButton2');
+	const dynamicChatContainer2 = document.getElementById('dynamicChatContainer2');
+
+	loadChatButton1.addEventListener('click', () => {
+		// Perform an AJAX request to fetch the chat interface content
+		const xhr = new XMLHttpRequest();
+		xhr.onreadystatechange = function () {
+			if (xhr.readyState === 4 && xhr.status === 200) {
+				dynamicChatContainer1.innerHTML = xhr.responseText;
+
+				dynamicChatContainer1.style.display = 'block';
+			}
+		};
+		xhr.open('GET', '{% url "chat_interface" %}', true);
+		xhr.send();
+	});
+
+	loadChatButton2.addEventListener('click', () => {
+		// Perform an AJAX request to fetch the chat interface content
+		const xhr = new XMLHttpRequest();
+		xhr.onreadystatechange = function () {
+			if (xhr.readyState === 4 && xhr.status === 200) {
+				dynamicChatContainer2.innerHTML = xhr.responseText;
+
+				dynamicChatContainer2.style.display = 'block';
+			}
+		};
+		xhr.open('GET', '{% url "chat_interface" %}', true);
+		xhr.send();
+	});
+</script>
+
+<!-- JavaScript for the sendMessage function -->
+<script>
+	function sendMessage() {
+		const message = document.getElementById('message').value;
+		document.getElementById('message').value = '';
+		addMessage('You', message, 'user-message');
+
+		// You can add logic to send the message to the server here
+
+		// Simulate an admin response
+		setTimeout(function () {
+			addMessage('Therapist', 'Hello! How can I assist you?', 'admin-message');
+		}, 1000);
+	}
+
+	function addMessage(user, message, cssClass) {
+		const chatMessages = document.getElementById('chat-messages');
+		const messageDiv = document.createElement('div');
+		messageDiv.className = `message ${cssClass}`;
+		messageDiv.innerHTML = `<strong>${user}:</strong> ${message}`;
+		chatMessages.appendChild(messageDiv);
+		chatMessages.scrollTop = chatMessages.scrollHeight;
+	}
+</script>
+
+<script>
+
+	// Function to close the chat container
+	function closeChat() {
+		const dynamicChatContainer1 = document.getElementById('dynamicChatContainer1');
+		dynamicChatContainer1.style.display = 'none';
+
+		const dynamicChatContainer2 = document.getElementById('dynamicChatContainer2');
+		dynamicChatContainer2.style.display = 'none';
+	}
+
+</script>
+{% endblock content %}
+
+
+
+<script src="{% static 'core/js/jquery.js' %}"></script>
+<script src="{% static 'core/js/popper.js' %}"></script>
+<script src="{% static 'core/js/all.min.js' %}"></script>
+<script src="{% static 'core/js/bootstrap.js' %}"></script>
+
+<script src="{% static 'core/js/main.js' %}"></script>
+
+<script src="{% static 'js/jquery.min.js' %}"></script>
+
+<script>
+	$(function () {
+		$(window).scroll(function () {
+			if ($(document).scrollTop() > 60) {
+				$(".main-nav").addClass("sticky")
+			} else {
+				$(".main-nav").removeClass("sticky")
+			}
+		});
+		$("#goTop").click(function () {
+			$("html,body").animate({
+				scrollTop: 0
+			}, "slow");
+			return false
+		});
+		$(window).scroll(function () {
+			if ($(this).scrollTop() > 300) {
+				$("#goTop").addClass("active")
+			} else {
+				$("#goTop").removeClass("active");
+				return false
+			}
+		}).scroll()
+	});
+</script>
+
+</body>
+
+</html>

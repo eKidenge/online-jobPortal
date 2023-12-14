@@ -1,0 +1,52 @@
+{% load static %}
+
+{% block custom_css %}
+<link rel="stylesheet" href="{% static 'core/style.css' %}" />
+<link rel="stylesheet" href="{% static 'core/style2.css' %}" />
+{% endblock custom_css %}
+
+{% block content %}
+
+<style>
+	.row {
+		--bs-gutter-x: 1.5rem;
+		--bs-gutter-y: 0;
+		display: flex;
+		margin-top: calc(var(--bs-gutter-y) * -1);
+		margin-right: calc(var(--bs-gutter-x)/ -2);
+		margin-left: calc(var(--bs-gutter-x)/ -2);
+		align-content: space-around;
+		flex-direction: row;
+	}
+</style>
+<section class=doc-section>
+	<div class=container>
+		<div class=row>
+			<h2 class=col-12>How it Works</h2><br><br><br><br><br>
+			<div class="row rowsetting mt-5">
+				<div class="col-lg-2 col-md-3 col-sm-4 col-10 d-block m-auto text-center d-inline-block">
+					<a href="#"><i class="fa fa-user-circle fa-3x mb-2" aria-hidden="true"></i></a><br>
+					<h4> Login Or SignUp </h4><br>
+					<p style="display: inline-block;"> Unlock the Beauty Experience: Log In and Get Started!</p>
+				</div>
+				<div class="col-lg-2 col-md-3 col-sm-4 col-10 d-block m-auto text-center d-inline-block">
+					<a href="#"><i class="fa fa-briefcase fa-3x mb-2" aria-hidden="true"></i></a>
+					<h4> Choose Service </h4><br>
+					<p style="display: inline-block;"> Your Appointment with Beauty Starts with a Simple Click</p>
+				</div>
+				<div class="col-lg-2 col-md-3 col-sm-4 col-10 d-block m-auto text-center d-inline-block">
+					<a href="#"><i class="fa fa-calendar fa-3x mb-2" aria-hidden="true"></i></a>
+					<h4> Book Appointment </h4><br>
+					<p style="display: inline-block;"> Your Beauty Calendar Awaits – Set an Appointment Today</p>
+				</div>
+				<div class="col-lg-2 col-md-3 col-sm-4 col-10 d-block m-auto text-center d-inline-block">
+					<a href="#"><i class="fa fa-street-view fa-3x mb-2" aria-hidden="true"></i></a>
+					<h4> Visit Shop </h4><br>
+					<p style="display: inline-block;"> Our Shop Awaits Your Visit</p>
+				</div>
+			</div>
+
+
+</section>
+
+{% endblock content %}

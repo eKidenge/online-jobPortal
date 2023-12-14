@@ -1,0 +1,91 @@
+@font-face {
+	font-family: Conpara;
+	src: url('/static/core/Fonts/Montserrat-Regular.ttf');
+}
+
+@font-face {
+	font-family: ConHeading;
+	src: url('/static/core/fonts/Poppins-Regular.ttf');
+}
+
+/* Position Spa Hours on the right side */
+.et_pb_text_2 {
+	float: right;
+	width: 50%;
+	/* Adjust the width as needed */
+}
+
+
+.spa-hours {
+	background-color: #f7f7f7;
+	/* Background color for Spa Hours */
+	border: 1px solid #eee;
+	border-radius: 5px;
+	padding: 20px;
+	width: 48%;
+	/* Adjust the width as needed */
+	float: left;
+	/* Align to the left side */
+	margin-right: 20% !important;
+	/* Add some space between the sections */
+	box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+
+.contact-form {
+	background-color: #c3c3c399 !important;
+	border-radius: 3%;
+	padding: 20px;
+	/* Adjust the padding as needed */
+	float: right;
+	width: 48%;
+	/* Adjust the width as needed */
+}
+
+.contact-form h1 {
+	font-size: 24px;
+	margin-bottom: 20px;
+}
+
+.contact-form .form-control {
+	border: 1px solid #ccc;
+	border-radius: 3px;
+	padding: 10px;
+	margin-bottom: 10px;
+}
+
+.contact-form select {
+	border: 1px solid #ccc;
+	border-radius: 3px;
+	padding: 10px;
+	margin-bottom: 10px;
+	width: 100%;
+	/* Make the select input full width */
+}
+
+.contact-form textarea {
+	border: 1px solid #ccc;
+	border-radius: 3px;
+	padding: 10px;
+	margin-bottom: 10px;
+	width: 100%;
+	/* Make the textarea full width */
+}
+
+.contact-form #sendMessageButton {
+	background-color: #007BFF;
+	color: #fff;
+	border: none;
+	border-radius: 3px;
+	padding: 10px 20px;
+	cursor: pointer;
+	transition: background-color 0.3s;
+}
+
+.contact-form #sendMessageButton:hover {
+	background-color: #0056b3;
+}
+
+.spa-hours {
+	margin-top: 20%;
+}

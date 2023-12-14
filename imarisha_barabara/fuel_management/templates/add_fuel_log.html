@@ -1,0 +1,13 @@
+<!-- fuel_management/add_fuel_log.html -->
+{% extends 'base.html' %}
+
+{% block title %}Add Fuel Log{% endblock %}
+
+{% block content %}
+    <h2>Add Fuel Log</h2>
+    <form method="post" action="{% url 'add_fuel_log' %}">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Submit</button>
+    </form>
+{% endblock %}

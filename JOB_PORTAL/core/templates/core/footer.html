@@ -1,0 +1,107 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html>
+
+<head>
+  <!-- <title>Footer</title> -->
+
+  {% block custom_css %}
+  <link rel="stylesheet" href="{% static 'core/style.css' %}" />
+  <link rel="stylesheet" href="{% static 'core/style2.css' %}" />
+
+  {% endblock custom_css %}
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+
+<body>
+
+  {% block content %}
+
+
+  <footer class=main-footer>
+    <div class=container>
+      <div class=row>
+        <div class=col-4>
+          <div class=footer-logo>
+            <a href=#>
+              <img src="{%static 'core/images/logo.svg' %}" class=logo-light />
+            </a>
+          </div>
+          <ul class=sns>
+            <li class=icon-fb>
+              <a href=#>
+                <i class="fab fa-facebook-f"></i>
+              </a>
+            </li>
+            <li class=icon-twitter>
+              <a href=#>
+                <i class="fab fa-twitter"></i>
+              </a>
+            </li>
+            <li class=icon-instagram>
+              <a href=#>
+                <i class="fab fa-instagram"></i>
+              </a>
+            </li>
+            <li class=icon-pinterest>
+              <a href=#>
+                <i class="fab fa-pinterest"></i>
+              </a>
+            </li>
+          </ul>
+        </div>
+        <div class=col-4>
+          <h3>CONTACT US</h3>
+          <div class=contact>
+            <div class=contact-icon>
+              <i class="fas fa-phone-alt"></i>
+            </div>
+            <div class=contact-main>
+              <a href=#>+254743299966</a>
+              <br />
+              <a href=#>0718909038</a>
+            </div>
+          </div>
+          <div class=contact>
+            <div class=contact-icon>
+              <i class="fas fa-map-marker-alt"></i>
+            </div>
+            <div class=contact-main>
+              <a href=#>Moi avenue,Mombasa, Kenya</a>
+            </div>
+          </div>
+          <div class=contact>
+            <div class=contact-icon>
+              <i class="fas fa-envelope"></i>
+            </div>
+            <div class=contact-main>
+              <a href=#>serenityhavenspa@yahoo.com</a>
+            </div>
+          </div>
+        </div>
+        <div class=col-4>
+          <h3>Any Query</h3>
+          <p> Enter your email address to receive up-to-date blog, new patient services and other useful stuff,
+            delivered right to your inbox. </p>
+          <div class=form-group>
+            <input class=form-control type=text placeholder="Your e-mail..." />
+            <button class=submit-btn type=submit>Subscribe</button>
+          </div>
+        </div>
+      </div>
+      <div class=row>
+        <div class=copyright> © 2023 Project by <a href="">Jeptepkeny Mercy</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+  <div id=goTop class=goTop></div>
+  {% endblock content %}
+
+</body>
+
+</html>

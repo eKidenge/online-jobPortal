@@ -1,0 +1,39 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Document</title>
+
+	<!-- Bootstrap Files -->
+	<link rel="stylesheet" href="{% static 'core/style.css' %}" />
+	<link rel="stylesheet" href="{% static 'core/style2.css' %}" />
+</head>
+
+<body>
+
+	</header>
+
+	<section class=kv>
+		<div class=slider-banner>
+			<div class=slider-container>
+				<div class="item item-kv-1 active">
+					<div class=container>
+						<div class=row>
+							<div class="item-kv-txt col-md-6 col-xl-4"><br><br>
+								<h2> Look Good | Feel Good </h2><br>
+								<h3 class> Serenity & Wellness <br> Spa </h3><br>
+								<a href="{% url 'bookappointment' %}" class=btn>make an appointment</a>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+</body>
+
+</html>

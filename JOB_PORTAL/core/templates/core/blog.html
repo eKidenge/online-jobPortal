@@ -1,0 +1,86 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html>
+
+<head>
+
+    <head>
+
+
+        {% block custom_css %}
+        <link rel="stylesheet" href="{% static 'core/style.css' %}" />
+        <link rel="stylesheet" href="{% static 'core/style2.css' %}" />
+
+        {% endblock custom_css %}
+
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+            integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
+            crossorigin="anonymous" referrerpolicy="no-referrer" />
+    </head>
+
+
+<body>
+    {% block content %}
+
+    <section class="blog">
+        <div class="container">
+            <div class="row">
+                <h2 class="col-12">Latest Blog Posts</h2>
+                <article class="col-8 col-md-6 col-xl-4">
+                    <div class="post">
+                        <a class="img-hover" href="#">
+                            <img src="{% static 'core/images/img2.jpg' %}" />
+                        </a>
+                        <h2>
+                            <a href="#">Best skin care products</a>
+                        </h2>
+                        <h3 class="time">jan 19, 2023 at 5:12pm</h3>
+                        <p>Explore our blog to discover insights on the best skin care products. Our articles are your
+                            source for
+                            expert advice to keep your skin glowing and healthy...<a href="#" style="color: brown;">Read
+                                more </a> </p>
+                    </div>
+                </article>
+                <article class="col-8 col-md-6 col-xl-4">
+                    <div class="post">
+                        <a class="img-hover" href="#">
+                            <img src="{% static 'core/images/img1.jpg' %}" />
+                        </a>
+                        <h2>
+                            <a href="#">Secrets for healthier-looking skin</a>
+                        </h2>
+                        <h3 class="time">feb 19, 2023 at 9:45am</h3>
+                        <p>Unlock the secrets to achieving healthier, more radiant skin with our latest blog post. Our
+                            experts
+                            share valuable insights and tips to help you maintain a youthful and glowing complexion.
+                            Explore the
+                            article to discover the path to beautiful, healthy skin....<a href="#"
+                                style="color: brown;">Read more </a>
+                        </p>
+                    </div>
+                </article>
+                <article class="col-8 col-md-6 col-xl-4">
+                    <div class="post">
+                        <a class="img-hover" href="#">
+                            <img src="{% static 'core/images/img4.jpg' %}" />
+                        </a>
+                        <h2>
+                            <a href="#">Nail polish design ideas</a>
+                        </h2>
+                        <h3 class="time">dec 26, 2023 at 5:12pm</h3>
+                        <p>Get inspired by the latest nail polish design ideas. Our blog post offers creative and trendy
+                            suggestions to keep your nails looking stylish. Explore the article and bring new life to
+                            your nail art
+                            with our unique ideas...<a href="#" style="color: brown;">Read more </a> </p>
+                    </div>
+                </article>
+            </div>
+        </div>
+    </section>
+
+    {% endblock content %}
+
+</body>
+
+</html>

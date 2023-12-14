@@ -1,0 +1,158 @@
+{% load static %}
+
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> About Us </title>
+
+    <link rel="stylesheet" href="{% static 'core/css/style/bootstrap.min.css' %}">
+    <!-- Add this in the head section of your HTML file -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+        integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8sh+Wy/dQSh80aG7L3Skk9GN/ZdUHI9pQIjIs" crossorigin="anonymous">
+
+    <style>
+        .mb-4 {
+            margin-bottom: 1.5rem !important;
+            font-family: 'Open Sans', Helvetica, Arial, Lucida, sans-serif;
+            font-weight: 700;
+            text-transform: uppercase;
+            font-size: 25px;
+            letter-spacing: 5px;
+            line-height: 1.8em;
+
+        }
+
+        .input-field {
+            background-color: #f5f5f5;
+            border: none;
+            border-bottom: 2px solid #007bff;
+            margin-bottom: 20px;
+            border-radius: 0;
+        }
+
+        .input-field::placeholder {
+            color: #aaa;
+        }
+    </style>
+
+</head>
+
+
+<body>
+
+    <!-- Your navbar content goes here -->
+
+    {% include 'core/navbar.html' %}
+
+    {% block content %}
+
+    <!-- Contact Start -->
+    <div class="container-fluid py-5">
+        <div class="container py-5">
+            <div class="row">
+                <!-- core/login.html -->
+
+                {% if messages %}
+                <div class="container">
+                    <div class="alert alert-danger mt-3"
+                        style="position: fixed; top: 0; left: 50%; transform: translateX(-50%); z-index: 1000;"
+                        role="alert">
+                        {% for message in messages %}
+                        {{ message }}
+                        {% endfor %}
+                    </div>
+                </div>
+                {% endif %}
+
+                <!-- Your existing login form HTML -->
+
+
+                <div class="col-lg-6 pt-5 pb-lg-5" style="margin-top: 8%;">
+                    <div class="contact-form bg-light p-4 p-lg-5 my-lg-5">
+                        <!-- <h6 class="d-inline-block text-white text-uppercase bg-primary py-1 px-2">Contact</h6> -->
+                        <h1 class="mb-4">Member Login</h1>
+
+                        <div id="success"></div>
+
+                        <form action="{% url 'login' %}" method="POST">
+                            {% csrf_token %}
+
+                            <div class="form-row">
+                                <div class="col-sm-6 control-group">
+                                    <input type="email" class="form-control border-0 p-4 input-field" id="email"
+                                        name="email" placeholder="email" required="required"
+                                        data-validation-required-message="Please enter your email" />
+                                    <p class="help-block text-danger"></p>
+                                </div>
+                                <div class="col-sm-6 control-group">
+                                    <input type="password" class="form-control border-0 p-4 input-field" id="password"
+                                        name="password" placeholder="Your password" required="required"
+                                        data-validation-required-message="Please enter your password" />
+                                    <p class="help-block text-danger"></p>
+                                </div>
+
+                                <!-- Button -->
+                                <div class="form-group text-center mt-3">
+                                    <input type="submit" value="Login" class="btn btn-info btn-sm">
+
+                                </div>
+                                <div class="col-sm-6 control-group">
+
+                                    <p class="mt-2"> Don't have an account? <a href="{% url 'signup' %}"> Sign Up </a>
+                                    </p>
+                                </div>
+                        </form>
+
+                    </div>
+                </div>
+            </div>
+
+
+            {% endblock content %}
+
+            {% include 'core/blog.html' %}
+
+            {% include 'core/footer.html' %}
+
+            <script src="{% static 'core/js/jquery.js' %}"></script>
+            <script src="{% static 'core/js/popper.js' %}"></script>
+            <script src="{% static 'core/js/all.min.js' %}"></script>
+            <script src="{% static 'core/js/bootstrap.js' %}"></script>
+
+            <script src="{% static 'core/js/main.js' %}"></script>
+
+            <script src="{% static 'js/jquery.min.js' %}"></script>
+
+            <script>
+                $(function () {
+                    $(window).scroll(function () {
+                        if ($(document).scrollTop() > 60) {
+                            $(".main-nav").addClass("sticky")
+                        } else {
+                            $(".main-nav").removeClass("sticky")
+                        }
+                    });
+                    $("#goTop").click(function () {
+                        $("html,body").animate({
+                            scrollTop: 0
+                        }, "slow");
+                        return false
+                    });
+                    $(window).scroll(function () {
+                        if ($(this).scrollTop() > 300) {
+                            $("#goTop").addClass("active")
+                        } else {
+                            $("#goTop").removeClass("active");
+                            return false
+                        }
+                    }).scroll()
+                });
+            </script>
+
+</body>
+
+</html>

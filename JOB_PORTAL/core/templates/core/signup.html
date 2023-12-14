@@ -1,0 +1,84 @@
+{% extends "core/base.html" %}
+
+{% block content %}
+<div class="container-fluid py-5">
+    <div class="container py-5">
+        <div class="row">
+            <div class="col-lg-6 pt-5 pb-lg-5" style="margin-top: 8%;">
+                <div class="contact-form bg-light p-4 p-lg-5 my-lg-5">
+                    <h1 class="mb-4">Create An Account</h1>
+                    <div id="success"></div>
+
+                    <form action="{% url 'signup' %}" method="POST">
+                        {% csrf_token %}
+
+                        <div class="form-row">
+                            <div class="col-sm-6 control-group">
+                                <label for="fname">First Name</label>
+                                <input type="text" class="form-control border-0 p-4 input-field" id="fname" name="fname"
+                                    placeholder="First Name" required="required"
+                                    data-validation-required-message="Please enter your first name" />
+                                <p class="help-block text-danger"></p>
+                            </div>
+                            <div class="col-sm-6 control-group">
+                                <label for="lname">Last Name</label>
+                                <input type="text" class="form-control border-0 p-4 input-field" id="lname" name="lname"
+                                    placeholder="Last Name" required="required"
+                                    data-validation-required-message="Please enter your last name" />
+                                <p class="help-block text-danger"></p>
+                            </div>
+                            <div class="col-sm-6 control-group">
+                                <label for="address">Address</label>
+                                <input type="text" class="form-control border-0 p-4 input-field" id="address"
+                                    name="address" placeholder="Address" required="required"
+                                    data-validation-required-message="Please enter your address" />
+                                <p class="help-block text-danger"></p>
+                            </div>
+                            <div class="col-sm-6 control-group">
+                                <label for="phone">Phone Number</label>
+                                <input type="text" class="form-control border-0 p-4 input-field" id="phone" name="phone"
+                                    placeholder="Phone Number" required="required"
+                                    data-validation-required-message="Please enter your phone number" />
+                                <p class="help-block text-danger"></p>
+                            </div>
+                            <div class="col-sm-6 control-group">
+                                <label>Gender</label>
+                                <div class="form-group mb-1">
+                                    <input type="radio" name="gender" value="M" required="required"> Male
+                                    <input type="radio" name="gender" value="F" required="required"> Female
+                                </div>
+                            </div>
+                            <div class="col-sm-6 control-group">
+                                <label for="email">Email</label>
+                                <input type="email" class="form-control border-0 p-4 input-field" id="email"
+                                    name="email" placeholder="Email" required="required"
+                                    data-validation-required-message="Please enter your email" />
+                                <p class="help-block text-danger"></p>
+                            </div>
+                            <div class="col-sm-6 control-group">
+                                <label for="password">Password</label>
+                                <input type="password" class="form-control border-0 p-4 input-field" id="password"
+                                    name="password" placeholder="Password" required="required"
+                                    data-validation-required-message="Please enter your password" />
+                                <p class="help-block text-danger"></p>
+                            </div>
+
+                            <!-- Button -->
+                            <div class="form-group text-center mt-3">
+                                <input type="submit" value="Create An Account" class="btn btn-info btn-sm">
+                            </div>
+
+                            <div class="col-sm-6 control-group">
+                                <p class="mt-2">Already have an account? <a href="{% url 'login' %}">Login</a></p>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+{% endblock content %}

@@ -1,0 +1,514 @@
+{% load static %}
+
+<!doctype html>
+<html lang="en">
+
+<head>
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  {% comment %}
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
+  {% endcomment %}
+
+  <link rel="stylesheet" href="{% static 'core/css/style/bootstrap.min.css' %}">
+  <link rel="stylesheet" href="{% static 'core/css/style/datepicker3.css' %}">
+  <link rel="stylesheet" href="{% static 'core/css/apppointments.css' %}">
+  <link rel="stylesheet" href="{% static 'core/css/bookapppointment.css' %}">
+
+  <link rel="stylesheet" href="{% static 'core/style.css' %}" />
+  <link rel="stylesheet" href="{% static 'core/style2.css' %}" />
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+
+  <style>
+    .text_inner h2 {
+      font-family: 'Prata', Georgia, "Times New Roman", serif;
+      font-size: 32px;
+      line-height: 1.4em;
+      color: #333;
+      padding-bottom: 10px;
+      font-weight: 500;
+    }
+
+    .text-inner {
+      font-family: 'Open Sans', Helvetica, Arial, Lucida, sans-serif;
+      text-transform: uppercase;
+      letter-spacing: 3px;
+      line-height: 1.8em;
+      font-size: 14px;
+    }
+
+    .text-inner p {
+      padding-bottom: 1em;
+    }
+
+    /* Style the form container */
+    .form-container {
+      background-color: #f4f4f4;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+
+    /* Style the form head */
+    .form-head {
+      background-color: #c0b293;
+      text-align: center;
+      border-radius: 5px;
+      padding: 10px;
+    }
+
+    /* Style form rows */
+    .form-row {
+      margin-bottom: 10px;
+    }
+
+    /* Style input fields */
+    .form-control {
+      width: 100%;
+      padding: 10px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+    }
+
+    /* Style the "Book Appointment" button */
+    .btn-appointment {
+      background-color: #9b8d60;
+      color: white;
+      padding: 10px 20px !important;
+      border: none;
+      border-radius: 5px !important;
+      cursor: pointer;
+
+    }
+
+    /* Style select elements */
+    .form-select {
+      width: 100%;
+      padding: 10px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+    }
+
+    /* Style date and time pickers */
+    #date-picker,
+    #showtime {
+      width: 100%;
+      padding: 10px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+    }
+
+    /* Style labels */
+    label {
+      font-weight: bold;
+      margin-bottom: 5px;
+      display: block;
+    }
+
+    .custom-modal {
+      display: none;
+      position: fixed;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      z-index: 1000;
+      /* Add additional styles as needed */
+    }
+
+    .custom-modal-content {
+      width: max-content;
+      /* Add additional styles as needed */
+    }
+
+    /* Add a class to the body when the custom modal is open */
+    body.custom-modal-open {
+      overflow: hidden;
+    }
+  </style>
+</head>
+
+
+
+<body>
+
+  <!-- Your navbar content goes here -->
+
+  {% include 'core/navbar.html' %}
+
+
+
+
+  {% block content %}
+  {% if messages %}
+  <ul class="messages">
+    {% for message in messages %}
+    <li{% if message.tags %} class="{{ message.tags }}" {% endif %}>{{ message }}</li>
+      {% endfor %}
+  </ul>
+  {% endif %}
+
+  <section>
+    <div class="inner-layer" style="margin-top: 20% !important;">
+      <div class="container">
+        <div class="row no-margin">
+          <div class="col-sm-7">
+            <div class="content" style="margin-right: 12%;">
+              <h1 class="text-uppercase">SERENITY HAVEN</h1>
+              <style>
+                .text-uppercase {
+                  font-family: 'Prata', Georgia, "Times New Roman", serif;
+                  font-size: 50px;
+                  line-height: 1.2em;
+
+                  text-shadow: 0em 0.1em 0.1em #000000;
+                  color: #a3885e !important;
+                }
+              </style>
+              <p></p>
+              <p style="font-style: italic; font-size: 14px;">Welcome to Serenity Haven Spa! We're thrilled to have you
+                here. Book a
+                Session and Get to Enjoy Our
+                5-Star Services & Treatments. BOOK NOW !!</p><br>
+
+
+              <div class="spa-hours">
+                <div class="spa-sessions">
+                  <div class="text_inner">
+                    <h2>Open Hours</h2>
+                  </div>
+                  <div class="text-inner">Monday:&nbsp;<strong>9am – 9pm</strong>
+                    <p></p>
+                    <p>Tuesday:&nbsp;<strong>9am – 9pm</strong></p>
+                    <p>Wednesday:&nbsp;<strong>9am – 9pm</strong></p>
+                    <p>Thursday:&nbsp;<strong>9am – 9:00pm</strong></p>
+                    <p>Friday:&nbsp;<strong>9am – 9:00pm</strong></p>
+                    <p>Saturday: <strong>9am – 9:00pm</strong></p>
+                    <p>Sunday: <strong>10am – 8:00pm</strong></p>
+                  </div>
+                </div>
+              </div><br>
+              <h5>
+                <!-- 
+                <div class="social-link" style=""></div>
+                <a href="https://api.whatsapp.com/send?phone=+254743299966"><i class="fab fa-whatsapp"></i></a>
+                <a href="https://www.facebook.com/jeptepkenym/"><i class="fab fa-facebook-f"></i></a>
+                <a href="https://www.instagram.com/jeptepkeny.mogotio/"><i class="fab fa-instagram"></i></a> -->
+
+
+              </h5> <br>
+
+
+            </div>
+          </div>
+          <div class="col-sm-5">
+            <form action="{% url 'bookappointment' %}" method="POST" style="">
+              {% csrf_token %}
+              <div class="form-data">
+                <div class="form-head"
+                  style="padding: 10px; align-items: center; background-color: rgb(192, 178, 147); text-align: center; border-radius: 3%;">
+                  <h2>Make a Reservation</h2>
+                </div>
+
+                <div class="row form-row" style="margin-top: 5px;">
+                  <label for="date-picker">Select Date</label>
+                  <input type="text" id="date-picker" name="your_date">
+                </div>
+
+                <!-- Include the Flatpickr JavaScript and CSS files -->
+                <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+                <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
+
+                <!-- Initialize the Flatpickr calendar -->
+                <script>
+                  flatpickr("#date-picker", {
+                    defaultDate: "today",
+                    dateFormat: "Y-m-d",
+                    minDate: "today",
+                  });
+                </script>
+
+                <div class="row form-row">
+                  <label for="your_time">Appointment Time</label>
+
+                  <select class="form-select form-control" name="your_time" id="your_time">
+                    <option selected>Choose Time...</option>
+                    <option value="09:00">09:00 AM</option>
+                    <option value="10:00">10:00 AM</option>
+                    <option value="11:00">11:00 AM</option>
+                    <option value="09:00">12:00 PM</option>
+                    <option value="10:00">02:00 PM</option>
+                    <option value="11:00">04:00 PM</option>
+                    <!-- Add more time options as needed -->
+                  </select>
+
+                </div>
+
+                <div class="row form-row">
+                  <label for="your_name">Enter Full Name</label>
+                  <input type="text" name="your_name" id="your_name" placeholder="enter fullname">
+                </div>
+
+                <div class="row form-row">
+                  <label for="your_phone">Enter Mobile Number</label>
+                  <input type="text" name="your_phone" id="your_phone" placeholder="mobile number">
+                </div>
+
+                <div class="row form-row">
+                  <label for="your_email">Enter Email Address</label>
+                  <input type="text" name="your_email" id="your_email" placeholder="email address">
+                </div>
+
+                <div class="form-body">
+                  <div class="row form-row">
+                    <label for="number_of_people">Number of Slots</label>
+                    <select class="form-select form-control" name="number_of_people" id="number_of_people">
+                      <option selected>number of reservations</option>
+                      <option value="6">6</option>
+                      <option value="5">5</option>
+                      <option value="4">4</option>
+                      <option value="3">3</option>
+                      <option value="2">2</option>
+                      <option value="1">1</option>
+                      <!-- Add more time options as needed -->
+                    </select>
+
+                  </div>
+
+                  <div class="row form-row">
+                    <label for="your_service">Choose Service</label>
+                    <select class="form-select form-control" name="your_service" id="service-select"
+                      aria-label="Service select">
+                      <option selected>Choose Service...</option>
+                      {% for service in services %}
+                      <option value="{{ service.id }}">{{ service.name }}</option>
+                      {% endfor %}
+                    </select>
+                  </div>
+
+                  <div class="row form-row">
+                    <label for="product">Choose Products</label>
+                    <select class="form-select form-control" name="product" id="products-select"
+                      aria-label="Products select">
+                      <option selected>Choose Products...</option>
+                      {% for product in products %}
+                      <option value="{{ product.id }}">{{ product.name }}</option>
+                      {% endfor %}
+                    </select>
+                  </div>
+
+                  <div class="row form-row" style="margin-bottom: 10px !important;">
+                    <label for="staff">Choose Staff</label>
+                    <select class="form-select form-control" name="staff" id="staff-select" aria-label="Staff select">
+                      <option selected>Choose Staff...</option>
+                      {% for staff in staffs %}
+                      <option value="{{ staff.id }}">{{ staff.name }}</option>
+                      {% endfor %}
+                    </select>
+                  </div>
+
+                  <div class="row form-row" style="margin-top: 10px;">
+                    <button id="openAppointmentModal" class="btn btn-success btn-appointment">
+                      Book Appointment
+                    </button>
+
+
+                  </div>
+                </div>
+              </div>
+            </form>
+
+
+
+            <!-- Modal for appointment booking -->
+            <div class="modal fade" id="appointmentModal" tabindex="-1" role="dialog"
+              aria-labelledby="appointmentModalLabel" aria-hidden="true">
+              <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <h5 class="modal-title" id="appointmentModalLabel">Book Now</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                      <span aria-hidden="true">&times;</span>
+                    </button>
+                  </div>
+                  <div class="modal-body">
+                    <!-- Display the user's input entered in the form -->
+                    <p>Name: <span id="modalName"></span></p>
+                    <p>Phone: <span id="modalPhone"></span></p>
+                    <p>Email: <span id="modalEmail"></span></p>
+                    <p>Reserved Slots: <span id="modalPeople"></span></p>
+                    <p>Date: <span id="modalDate"></span></p>
+                    <p>Time: <span id="modalTime"></span></p>
+                    <p>Service: <span id="modalService"></span></p>
+                    <p>Product: <span id="modalProduct"></span></p>
+                    <p>Staff: <span id="modalStaff"></span></p>
+                  </div>
+                  <div class="modal-footer">
+                    <!-- Button to proceed with booking -->
+                    <button type="button" class="btn btn-success" data-dismiss="modal" id="bookAppointmentBtn">
+                      Book Appointment
+                    </button>
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </section><br><br><br>
+
+
+
+
+
+  {% endblock content %}
+
+  {% include 'core/blog.html' %}
+
+  {% include 'core/footer.html' %}
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      const serviceSelect = document.getElementById("service-select");
+      const productsSelect = document.getElementById("products-select");
+      const staffSelect = document.getElementById("staff-select");
+
+      // Function to update products and staff based on the selected service
+      function updateProductsAndStaff() {
+        const selectedServiceId = serviceSelect.value;
+
+        // Clear existing options in the products and staff selects
+        productsSelect.innerHTML = '';
+        staffSelect.innerHTML = '';
+
+        // Check if a valid service is selected
+        if (selectedServiceId !== "Choose Service...") {
+          // Make an AJAX request to fetch available products and staff
+          fetch(`/get-products-and-staff/?service_id=${selectedServiceId}`)
+            .then((response) => {
+              if (!response.ok) {
+                throw new Error('Network response was not ok');
+              }
+              return response.json();
+            })
+            .then((data) => {
+              // Populate productsSelect and staffSelect with available products and staff
+              data.products.forEach((product) => {
+                const option = document.createElement('option');
+                option.value = product.id;
+                option.textContent = product.name;
+                productsSelect.appendChild(option);
+              });
+
+              data.staff.forEach((staff) => {
+                const option = document.createElement('option');
+                option.value = staff.id;
+                option.textContent = staff.name;
+                staffSelect.appendChild(option);
+              });
+            })
+            .catch((error) => {
+              console.error('An error occurred:', error);
+            });
+        }
+      }
+
+      // Event listener to trigger update on service selection change
+      serviceSelect.addEventListener("change", updateProductsAndStaff);
+
+      // Call updateProductsAndStaff on page load to handle any pre-selected service
+      updateProductsAndStaff();
+    });
+
+
+  </script>
+
+  <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+  <script>
+    $(document).ready(function () {
+      $('#successModal').modal();
+    });
+  </script>
+
+  <script src="{% static 'core/js/myScript.js' %}"></script>
+
+  <!-- Add JavaScript to capture form data and open the modal -->
+
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+
+
+
+  <!-- Add jQuery library if you don't already have it -->
+
+
+  <script src="{% static 'core/js/jquery.js' %}"></script>
+  <script src="{% static 'core/js/popper.js' %}"></script>
+  <script src="{% static 'core/js/all.min.js' %}"></script>
+  <script src="{% static 'core/js/bootstrap.js' %}"></script>
+
+  <script src="{% static 'core/js/main.js' %}"></script>
+
+  <script src="{% static 'js/jquery.min.js' %}"></script>
+
+  <script>
+    $(function () {
+      $(window).scroll(function () {
+        if ($(document).scrollTop() > 60) {
+          $(".main-nav").addClass("sticky")
+        } else {
+          $(".main-nav").removeClass("sticky")
+        }
+      });
+      $("#goTop").click(function () {
+        $("html,body").animate({
+          scrollTop: 0
+        }, "slow");
+        return false
+      });
+      $(window).scroll(function () {
+        if ($(this).scrollTop() > 300) {
+          $("#goTop").addClass("active")
+        } else {
+          $("#goTop").removeClass("active");
+          return false
+        }
+      }).scroll()
+    });
+  </script>
+
+  <script src="{% static 'core/js/jquery.js' %}"></script>
+  <script src="{% static 'core/js/popper.js' %}"></script>
+  <script src="{% static 'core/js/bootstrap.js' %}"></script>
+  <script src="{% static 'core/js/bootstrap-datepicker.js' %}"></script>
+
+  {% comment %}
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-b5kHyXgcpbZJO/tY9Ul7kGkf1S0CWuKcCD38l8YkeH8z8QjE0GmW1gYU5S9FOnJ0"
+    crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.6.0/dist/umd/popper.min.js"
+    integrity="sha384-KsvD1yqQ1/1+IA7gi3P0tyJcT3vR+NdBTt13hSJ2lnve8agRGXTTyNaBYmCR/Nwi"
+    crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.min.js"
+    integrity="sha384-nsg8ua9HAw1y0W1btsyWgBklPnCUAFLuTMS2G72MMONqmOymq585AcH49TLBQObG"
+    crossorigin="anonymous"></script>
+  Mercy Jeptepkeny
+  +2547045533519
+  jeptepkenymercy@gmail.com
+  {% endcomment %}
+
+  <script>
+    $(document).ready(function () {
+      $("#showdate").datepicker({ format: 'yyyy-mm-dd' });
+    });
+  </script>
+
+</body>
+
+</html>
